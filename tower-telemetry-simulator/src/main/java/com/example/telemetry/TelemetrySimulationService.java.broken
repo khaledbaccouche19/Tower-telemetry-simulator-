@@ -1,0 +1,356 @@
+package com.example.telemetry;
+
+import org.springframework.stereotype.Service;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+@Service
+public class TelemetrySimulationService {
+    
+    private Random random = new Random();
+    private double baseTemperature = 35.0; // Base temperature that varies slowly
+    private double baseHumidity = 60.0;    // Base humidity that varies slowly
+    private double baseWindSpeed = 15.0;   // Base wind speed that varies slowly
+    private double baseBattery = 95.0;     // Base battery that drains slowly
+    private double baseUptime = 99.95;     // Base uptime that's very stable
+    
+    public List<TelemetryData> generateLiveData() {
+        List<TelemetryData> data = new ArrayList<>();
+        
+        // Generate data matching the exact format requested
+        data.add(generateSimplifiedTowerData());
+        
+        return data;
+    }
+    
+    private TelemetryData generateSimplifiedTowerData() {
+        TelemetryData data = new TelemetryData();
+        
+        // Set basic tower info
+        data.setTowerId(1L);
+        data.setTowerName("Main Tower");
+        
+        // Generate the exact metrics requested with realistic ranges
+        data.setStatus("online");
+        
+        // STABLE METRICS - Use base values that change slowly over time
+        data.setBattery(Math.max(75.0, Math.min(100.0, baseBattery + (random.nextGaussian() * 0.2)));
+        data.setUptime(Math.max(99.8, Math.min(100.0, baseUptime + (random.nextGaussian() * 0.005)));
+        
+        // MODERATELY STABLE METRICS - Small variations around base values
+        data.setTemperature(Math.max(30.0, Math.min(55.0, baseTemperature + (random.nextGaussian() * 1.5))));
+        data.setHumidity(Math.max(30.0, Math.min(80.0, baseHumidity + (random.nextGaussian() * 2.0))));
+        data.setPressure(1013.0 + (random.nextGaussian() * 1.5));
+        
+        int hour = LocalDateTime.now().getHour();
+        double uvBase = getUVIndexForHour(hour);
+        data.setUvIndex(uvBase + (random.nextGaussian() * 0.5));
+        
+        // NETWORK METRICS - Correlated and realistic
+        double networkLoad = 60.0 + (random.nextGaussian() * 8.0);
+        data.setNetworkLoad(Math.max(45.0, Math.min(75.0, networkLoad)));
+        
+        // Signal strength correlates with network load
+        double signalStrength = -65.0 + (random.nextGaussian() * 3.0);
+        data.setSignalStrength(Math.max(-70.0, Math.min(-55.0, signalStrength)));
+        
+        // Latency correlates with network load
+        double latency = 20.0 + (networkLoad * 0.15) + (random.nextGaussian() * 2.0);
+        data.setLatency(Math.max(18.0, Math.min(32.0, latency)));
+        
+        // Jitter correlates with latency
+        data.setJitter(Math.max(2.0, Math.min(8.0, latency * 0.2 + (random.nextGaussian() * 1.0))));
+        
+        // Packet loss correlates with network load and signal strength
+        double packetLossBase = (networkLoad > 65.0 ? 0.05 : 0.02) + (signalStrength < -65.0 ? 0.03 : 0.0);
+        data.setPacketLoss(Math.max(0.0, Math.min(0.15, packetLossBase + (random.nextGaussian() * 0.02))));
+        
+        // Bandwidth correlates with signal strength and network load
+        double bandwidthBase = 800.0 + (signalStrength + 70.0) * 10.0 - (networkLoad * 2.0);
+        data.setBandwidth(Math.max(400.0, Math.min(950.0, bandwidthBase + (random.nextGaussian() * 30.0))));
+        
+        // ENVIRONMENTAL METRICS - Correlated and realistic
+        double windSpeed = baseWindSpeed + (random.nextGaussian() * 3.0);
+        data.setWindSpeed(Math.max(3.0, Math.min(25.0, windSpeed)));
+        
+        // Air quality correlates with humidity and wind
+        double airQualityBase = 70.0 - (data.getHumidity() - 50.0) * 0.3 + (windSpeed * 0.5);
+        data.setAirQuality(Math.max(25.0, Math.min(75.0, airQualityBase + (random.nextGaussian() * 3.0))));
+        
+        // Fix timestamp formatting issue - use the exact format requested
+        String timestamp = LocalDateTime.now().atZone(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT);
+        data.setTimestamp(timestamp);
+        
+        return data;
+    }
+    
+    private TelemetryData generateRealisticTowerData(Long towerId, String towerName) {
+        TelemetryData data = new TelemetryData();
+        data.setTowerId(towerId);
+        data.setTowerName(towerName);
+        
+        // Update base values slowly (realistic tower behavior)
+        updateBaseValues();
+        
+        // Format current timestamp
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ISO_INSTANT);
+        data.setTimestamp(timestamp);
+        
+        // Generate correlated, realistic telemetry data
+        
+        // Environmental conditions (correlated)
+        double ambientTemp = baseTemperature + (random.nextGaussian() * 3.0); // ±3°C variation
+        data.setAmbientTemperature(Math.max(15.0, Math.min(45.0, ambientTemp)));
+        
+        // Tower temperature correlates with ambient + equipment heat
+        double equipmentHeat = 8.0 + (random.nextGaussian() * 2.0); // Equipment generates heat
+        double towerTemp = ambientTemp + equipmentHeat + (random.nextGaussian() * 1.5);
+        data.setTemperature(Math.max(30.0, Math.min(55.0, towerTemp)));
+        
+        // Humidity inversely correlates with temperature
+        double humidityVariation = random.nextGaussian() * 5.0;
+        double humidity = baseHumidity - (ambientTemp - 25.0) * 0.8 + humidityVariation;
+        data.setHumidity(Math.max(30.0, Math.min(85.0, humidity)));
+        
+        // Wind affects multiple parameters
+        double windSpeed = baseWindSpeed + (random.nextGaussian() * 4.0);
+        data.setWindSpeed(Math.max(2.0, Math.min(35.0, windSpeed)));
+        
+        // Wind direction based on wind speed (calm = random, windy = more consistent)
+        data.setWindDirection(getRealisticWindDirection(windSpeed));
+        
+        // Air quality correlates with humidity and wind
+        double airQualityBase = 85.0 - (humidity - 50.0) * 0.3 + (windSpeed * 0.2);
+        double airQuality = airQualityBase + (random.nextGaussian() * 3.0);
+        data.setAirQuality(Math.max(65.0, Math.min(98.0, airQuality)));
+        
+        // UV index correlates with time of day and weather
+        int hour = LocalDateTime.now().getHour();
+        double uvBase = getUVIndexForHour(hour);
+        double uvVariation = random.nextGaussian() * 1.5;
+        data.setUvIndex(Math.max(0.0, Math.min(12.0, uvBase + uvVariation)));
+        
+        // Precipitation correlates with humidity and air pressure
+        double pressure = 1013.0 + (random.nextGaussian() * 8.0);
+        data.setPressure(Math.max(990.0, Math.min(1040.0, pressure)));
+        
+        double precipitationChance = (humidity > 70.0 && pressure < 1010.0) ? 0.3 : 0.05;
+        double precipitation = random.nextDouble() < precipitationChance ? 
+            random.nextDouble() * 3.0 : 0.0;
+        data.setPrecipitation(precipitation);
+        
+        // Vibration correlates with wind speed
+        double vibration = (windSpeed > 20.0) ? 
+            (windSpeed - 20.0) * 0.02 + random.nextDouble() * 0.1 : 
+            random.nextDouble() * 0.05;
+        data.setVibration(Math.min(0.8, vibration));
+        
+        // System health metrics (more stable, realistic)
+        data.setBattery(Math.max(75.0, Math.min(100.0, baseBattery + (random.nextGaussian() * 1.0))));
+        data.setUptime(Math.max(99.8, Math.min(100.0, baseUptime + (random.nextGaussian() * 0.02))));
+        
+        // CPU and memory correlate with network load
+        double networkLoad = 60.0 + (random.nextGaussian() * 15.0);
+        data.setNetworkLoad(Math.max(40.0, Math.min(95.0, networkLoad)));
+        
+        double cpuBase = 40.0 + (networkLoad * 0.3);
+        data.setCpuUtilization(Math.max(25.0, Math.min(85.0, cpuBase + (random.nextGaussian() * 5.0))));
+        
+        double memoryBase = 65.0 + (networkLoad * 0.2);
+        data.setMemoryUsage(Math.max(55.0, Math.min(90.0, memoryBase + (random.nextGaussian() * 3.0))));
+        
+        // Disk space decreases slowly over time (realistic)
+        double diskSpace = 85.0 - (random.nextDouble() * 20.0);
+        data.setDiskSpace(Math.max(50.0, Math.min(90.0, diskSpace)));
+        
+        // Network performance correlates with environmental conditions
+        double signalStrengthBase = -65.0;
+        double signalVariation = (humidity > 70.0) ? 8.0 : 3.0; // Rain affects signal
+        double signalStrength = signalStrengthBase + (random.nextGaussian() * signalVariation);
+        data.setSignalStrength(Math.max(-75.0, Math.min(-45.0, signalStrength)));
+        
+        // Throughput correlates with signal strength and network load
+        double throughputBase = 800.0 + (signalStrength + 70.0) * 10.0;
+        double throughput = throughputBase + (random.nextGaussian() * 50.0);
+        data.setThroughput(Math.max(400.0, Math.min(1000.0, throughput)));
+        
+        // Latency correlates with network load and environmental conditions
+        double latencyBase = 20.0 + (networkLoad * 0.2) + (humidity > 70.0 ? 5.0 : 0.0);
+        double latency = latencyBase + (random.nextGaussian() * 3.0);
+        data.setLatency(Math.max(12.0, Math.min(45.0, latency)));
+        
+        // Jitter correlates with latency
+        double jitter = latency * 0.15 + (random.nextGaussian() * 1.0);
+        data.setJitter(Math.max(1.0, Math.min(12.0, jitter)));
+        
+        // Response time correlates with latency and CPU
+        double responseTime = latency + (data.getCpuUtilization() * 0.1) + (random.nextGaussian() * 2.0);
+        data.setResponseTime(Math.max(15.0, Math.min(55.0, responseTime)));
+        
+        // Bandwidth correlates with throughput
+        double bandwidth = throughput * 0.8 + (random.nextGaussian() * 30.0);
+        data.setBandwidth(Math.max(80.0, Math.min(950.0, bandwidth)));
+        
+        // Error rates correlate with environmental stress
+        double errorRateBase = 0.02 + (humidity > 75.0 ? 0.03 : 0.0) + (towerTemp > 45.0 ? 0.02 : 0.0);
+        double errorRate = errorRateBase + (random.nextGaussian() * 0.01);
+        data.setErrorRate(Math.max(0.0, Math.min(0.08, errorRate)));
+        
+        // Packet loss correlates with error rate and network load
+        double packetLossBase = errorRate * 2.0 + (networkLoad > 80.0 ? 0.05 : 0.0);
+        double packetLoss = packetLossBase + (random.nextGaussian() * 0.02);
+        data.setPacketLoss(Math.max(0.0, Math.min(0.15, packetLoss)));
+        
+        // Interference correlates with environmental conditions
+        double interferenceBase = 8.0 + (humidity > 70.0 ? 5.0 : 0.0) + (windSpeed > 25.0 ? 3.0 : 0.0);
+        double interference = interferenceBase + (random.nextGaussian() * 2.0);
+        data.setInterference(Math.max(3.0, Math.min(28.0, interference)));
+        
+        // Voltage is very stable with minor variations
+        double voltage = 12.5 + (random.nextGaussian() * 0.15);
+        data.setVoltage(Math.max(11.8, Math.min(13.2, voltage)));
+        
+        return data;
+    }
+    
+    private void updateBaseValues() {
+        // Slowly drift base values (realistic tower behavior)
+        baseTemperature += (random.nextGaussian() * 0.1);
+        baseHumidity += (random.nextGaussian() * 0.2);
+        baseWindSpeed += (random.nextGaussian() * 0.3);
+        
+        // Battery slowly drains during operation
+        baseBattery -= 0.001; // Very slow drain
+        
+        // Uptime stays very high (realistic for telecom towers)
+        if (baseUptime < 99.95) {
+            baseUptime += 0.0001; // Recovery
+        }
+        
+        // Keep values in realistic ranges
+        baseTemperature = Math.max(20.0, Math.min(50.0, baseTemperature));
+        baseHumidity = Math.max(35.0, Math.min(80.0, baseHumidity));
+        baseWindSpeed = Math.max(5.0, Math.min(30.0, baseWindSpeed));
+        baseBattery = Math.max(70.0, Math.min(100.0, baseBattery));
+        baseUptime = Math.max(99.8, Math.min(100.0, baseUptime));
+    }
+    
+    private String getRealisticWindDirection(double windSpeed) {
+        String[] directions = {"N", "NE", "E", "SE", "S", "SW", "W", "NW"};
+        
+        // Calm winds = more random, strong winds = more consistent
+        if (windSpeed < 8.0) {
+            return directions[random.nextInt(directions.length)];
+        } else {
+            // Stronger winds tend to maintain direction longer
+            int currentIndex = random.nextInt(directions.length);
+            // 70% chance to keep same direction, 30% chance to change
+            if (random.nextDouble() < 0.7) {
+                return directions[currentIndex];
+            } else {
+                return directions[random.nextInt(directions.length)];
+            }
+        }
+    }
+    
+    private double getUVIndexForHour(int hour) {
+        // UV index follows daily pattern
+        if (hour >= 6 && hour <= 18) {
+            if (hour >= 10 && hour <= 14) {
+                return 8.0 + (random.nextGaussian() * 1.5); // Peak hours
+            } else {
+                return 4.0 + (random.nextGaussian() * 1.0); // Moderate hours
+            }
+        } else {
+            return 0.5 + (random.nextGaussian() * 0.3); // Low/zero hours
+        }
+    }
+    
+    // NEW METHODS for frontend integration
+    
+    public List<TelemetryData> generateHistoricalData(Long towerId, String timeRange) {
+        List<TelemetryData> historicalData = new ArrayList<>();
+        int dataPoints = getDataPointsForTimeRange(timeRange);
+        
+        for (int i = 0; i < dataPoints; i++) {
+            TelemetryData data = generateRealisticTowerData(towerId, "Main Tower");
+            // Adjust timestamp to be in the past - fix the formatting issue
+            data.setTimestamp(LocalDateTime.now().minusMinutes(i * 5).atZone(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT));
+            historicalData.add(data);
+        }
+        
+        return historicalData;
+    }
+    
+    public List<TowerSummary> generateTowerSummaries() {
+        List<TowerSummary> summaries = new ArrayList<>();
+        
+        // Single tower summary with current realistic values
+        summaries.add(createTowerSummary(1L, "Main Tower", "online", 
+            Math.round(baseBattery * 10.0) / 10.0, 
+            Math.round(baseTemperature * 10.0) / 10.0, 
+            Math.round(baseUptime * 100.0) / 100.0, 
+            65.0 + (random.nextGaussian() * 10.0), 
+            "Main Location", "Primary Region", "Core Network"));
+        
+        return summaries;
+    }
+    
+    public List<Tower> getAllTowers() {
+        List<Tower> towers = new ArrayList<>();
+        
+        // Single tower information
+        towers.add(createTower(1L, "Main Tower", "online", 40.7128, -74.0060, "Main Location", "Core Network", "Primary Region"));
+        
+        return towers;
+    }
+    
+    private TowerSummary createTowerSummary(Long id, String name, String status, Double battery, Double temperature, Double uptime, Double networkLoad, String city, String region, String useCase) {
+        TowerSummary summary = new TowerSummary();
+        summary.setId(id);
+        summary.setName(name);
+        summary.setStatus(status);
+        summary.setBattery(battery);
+        summary.setTemperature(temperature);
+        summary.setUptime(uptime);
+        summary.setNetworkLoad(networkLoad);
+        summary.setCity(city);
+        summary.setRegion(region);
+        summary.setUseCase(useCase);
+        summary.setLastMaintenance(LocalDateTime.now().minusDays(30));
+        return summary;
+    }
+    
+    private Tower createTower(Long id, String name, String status, Double latitude, Double longitude, String city, String useCase, String region) {
+        Tower tower = new Tower();
+        tower.setId(id);
+        tower.setName(name);
+        tower.setStatus(status);
+        tower.setLatitude(latitude);
+        tower.setLongitude(longitude);
+        tower.setCity(city);
+        tower.setUseCase(useCase);
+        tower.setRegion(region);
+        tower.setCreatedAt(LocalDateTime.now().minusDays(30));
+        tower.setUpdatedAt(LocalDateTime.now());
+        return tower;
+    }
+    
+    private String getTowerName(Long towerId) {
+        return "Main Tower"; // Always return single tower name
+    }
+    
+    private int getDataPointsForTimeRange(String timeRange) {
+        switch (timeRange) {
+            case "1h": return 12;    // 5-minute intervals for 1 hour
+            case "24h": return 288;  // 5-minute intervals for 24 hours
+            case "7d": return 2016;  // 5-minute intervals for 7 days
+            case "30d": return 8640; // 5-minute intervals for 30 days
+            default: return 288;     // Default to 24 hours
+        }
+    }
+}

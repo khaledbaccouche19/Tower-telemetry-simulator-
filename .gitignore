@@ -1,0 +1,10 @@
+ai-service/venv/
+siteboss-project/siteboss-venv/
+tower-telemetry-simulator/target/
+
+# Virtual environments
+ai-service/venv/
+siteboss-project/siteboss-venv/
+tower-telemetry-simulator/target/
+*.log
+.DS_Store

@@ -1,8 +1,0 @@
-com/example/telemetry/Tower.class
-com/example/telemetry/DataRetentionService.class
-com/example/telemetry/TowerSummary.class
-com/example/telemetry/TelemetryData.class
-com/example/telemetry/CorsConfig.class
-com/example/telemetry/TelemetryController.class
-com/example/telemetry/TelemetrySimulationService.class
-com/example/telemetry/TowerTelemetrySimulatorApplication.class

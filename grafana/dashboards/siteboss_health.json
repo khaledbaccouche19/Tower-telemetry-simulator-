@@ -1,0 +1,65 @@
+{
+  "title": "SiteBoss Health – Cards",
+  "uid": "siteboss-health-cards",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": true,
+  "templating": {
+    "list": [
+      {
+        "type": "query",
+        "name": "towerId",
+        "label": "Tower",
+        "datasource": null,
+        "query": "label_values(siteboss_sensor_count, towerId)",
+        "refresh": 1,
+        "includeAll": true,
+        "allValue": ".*",
+        "multi": false
+      }
+    ]
+  },
+  "panels": [
+    {"type":"row","title":"SITE INFORMATION","gridPos":{"x":0,"y":0,"w":24,"h":1}},
+
+    {"type":"stat","title":"Site Name","gridPos":{"x":0,"y":1,"w":8,"h":4},"datasource":null,
+      "options":{"textMode":"name"},
+      "targets":[{"expr":"siteboss_unit_info{towerId=~\"$towerId\"}","legendFormat":"{{siteName}}"}]},
+
+    {"type":"stat","title":"Serial","gridPos":{"x":8,"y":1,"w":8,"h":4},"datasource":null,
+      "options":{"textMode":"name"},
+      "targets":[{"expr":"siteboss_unit_info{towerId=~\"$towerId\"}","legendFormat":"{{serial}}"}]},
+
+    {"type":"stat","title":"Sensors","gridPos":{"x":16,"y":1,"w":8,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"none"}},
+      "targets":[{"expr":"sum(siteboss_sensor_count{towerId=~\"$towerId\"})"}]},
+
+    {"type":"row","title":"STATUS","gridPos":{"x":0,"y":5,"w":24,"h":1}},
+
+    {"type":"stat","title":"Last Pull","gridPos":{"x":0,"y":6,"w":8,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"dateTimeAsIso"}},
+      "targets":[{"expr":"siteboss_last_pull_epoch_seconds{towerId=~\"$towerId\"} * 1000"}]},
+
+    {"type":"stat","title":"Device Time","gridPos":{"x":8,"y":6,"w":8,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"dateTimeAsIso"}},
+      "targets":[{"expr":"siteboss_device_time_epoch_seconds{towerId=~\"$towerId\"} * 1000"}]},
+
+    {"type":"stat","title":"Alerts – Critical","gridPos":{"x":16,"y":6,"w":4,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"none","thresholds":{"mode":"absolute","steps":[{"color":"green","value":0},{"color":"red","value":1}]}}},
+      "targets":[{"expr":"sum(siteboss_alert_count{towerId=~\"$towerId\", level=\"critical\"})"}]},
+
+    {"type":"stat","title":"Alerts – Warning","gridPos":{"x":20,"y":6,"w":4,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"none","thresholds":{"mode":"absolute","steps":[{"color":"green","value":0},{"color":"yellow","value":1}]}}},
+      "targets":[{"expr":"sum(siteboss_alert_count{towerId=~\"$towerId\", level=\"warning\"})"}]},
+
+    {"type":"row","title":"SENSORS","gridPos":{"x":0,"y":10,"w":24,"h":1}},
+
+    {"type":"table","title":"Sensors (latest)","gridPos":{"x":0,"y":11,"w":12,"h":9},"datasource":null,
+      "targets":[{"expr":"topk(100, siteboss_sensor_value{towerId=~\"$towerId\"})"}],
+      "options":{"showHeader":true}},
+
+    {"type":"timeseries","title":"Temperatures","gridPos":{"x":12,"y":11,"w":12,"h":9},"datasource":null,
+      "targets":[{"expr":"siteboss_sensor_value{towerId=~\"$towerId\", name=~\".*Temp.*\"}","legendFormat":"{{name}} ({{units}})"}]}
+  ]
+}

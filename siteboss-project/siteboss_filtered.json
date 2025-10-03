@@ -1,0 +1,85 @@
+{
+  "unit": {
+    "siteName": "5Sky Demo Site",
+    "serial": "360050631",
+    "version": "2.12.480",
+    "build": "STD",
+    "hardware": "A44",
+    "timestamp": {
+      "date": "09/28/25",
+      "time": "20:22:41"
+    },
+    "location": {
+      "latitude": "49.7020067663320",
+      "longitude": "14.0053179478874"
+    }
+  },
+  "sensors": [
+    {
+      "group": "INTERNAL",
+      "type": "Contact Closure",
+      "name": "Door Open - Front",
+      "status": "Active",
+      "value": "Open"
+    },
+    {
+      "group": "INTERNAL",
+      "type": "Contact Closure",
+      "name": "Door Open - Back",
+      "status": "Active",
+      "value": "Open"
+    },
+    {
+      "group": "INTERNAL",
+      "type": "Contact Closure",
+      "name": "Smoke Alarm",
+      "status": "Inactive",
+      "value": "Closed"
+    },
+    {
+      "group": "INTERNAL",
+      "type": "Contact Closure",
+      "name": "Motion Alarm",
+      "status": "Inactive",
+      "value": "Closed"
+    },
+    {
+      "group": "INTERNAL",
+      "type": "Contact Closure",
+      "name": "Flood Alarm",
+      "status": "Inactive",
+      "value": "Open"
+    },
+    {
+      "group": "INTERNAL",
+      "type": "Contact Closure",
+      "name": "Smoke 2 Alarm",
+      "status": "Active",
+      "value": "Closed"
+    },
+    {
+      "group": "INTERNAL",
+      "type": "Output",
+      "name": "Siren/ Strobe",
+      "status": "Inactive",
+      "value": "Inactive/De-energized"
+    },
+    {
+      "group": "Temp Top",
+      "type": "Temperature",
+      "name": "Temp Top",
+      "status": "Normal",
+      "value": "22 C"
+    },
+    {
+      "group": "Temp Bottom",
+      "type": "Temperature",
+      "name": "Temp Bottom",
+      "status": "Normal",
+      "value": "23 C"
+    }
+  ],
+  "counts": {
+    "totalSensors": 9
+  }
+}

@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Unit>
+	<Unit_Sitename>5Sky Demo Site</Unit_Sitename>
+	<Unit_Answer>SiteBoss</Unit_Answer>
+	<Unit_Product>SiteBoss 360</Unit_Product>
+	<Unit_Serial>360050631</Unit_Serial>
+	<Unit_Version>2.12.480</Unit_Version>
+	<Unit_Build>STD</Unit_Build>
+	<Unit_Hardware>A44</Unit_Hardware>
+	<Unit_Type>SiteBoss</Unit_Type>
+	<Unit_Latitude>49.7020067663320</Unit_Latitude>
+	<Unit_Longitude>14.0053179478874</Unit_Longitude>
+	<Unit_Date>09&#x2f;29&#x2f;25</Unit_Date>
+	<Unit_Time>14:32:00</Unit_Time>
+	<Unit_Uptime>760:00:19:58</Unit_Uptime>
+	<EventSensor>
+		<ES_Number>200</ES_Number>
+		<ES_Name>INTERNAL</ES_Name>
+		<ES_Configuration>16-CC, 3-VS, 2-RL</ES_Configuration>
+		<ES_State>Alive</ES_State>
+		<Sensor>
+			<Sensor_Number>1</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>Door Open - Front</Sensor_Name>
+			<Sensor_Enabled>ON</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Active</Sensor_Status_String>
+			<Sensor_Status_Value>1</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>2</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>Door Open - Back</Sensor_Name>
+			<Sensor_Enabled>ON</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Active</Sensor_Status_String>
+			<Sensor_Status_Value>1</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>3</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>Smoke Alarm</Sensor_Name>
+			<Sensor_Enabled>ON</Sensor_Enabled>
+			<Sensor_Value_String>Closed</Sensor_Value_String>
+			<Sensor_Value_Number>1</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>4</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>Motion Alarm</Sensor_Name>
+			<Sensor_Enabled>ON</Sensor_Enabled>
+			<Sensor_Value_String>Closed</Sensor_Value_String>
+			<Sensor_Value_Number>1</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>5</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>Flood Alarm</Sensor_Name>
+			<Sensor_Enabled>ON</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>6</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>Smoke 2 Alarm</Sensor_Name>
+			<Sensor_Enabled>ON</Sensor_Enabled>
+			<Sensor_Value_String>Closed</Sensor_Value_String>
+			<Sensor_Value_Number>1</Sensor_Value_Number>
+			<Sensor_Status_String>Active</Sensor_Status_String>
+			<Sensor_Status_Value>1</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>7</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>8</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>9</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>10</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>11</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>12</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>13</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>14</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>15</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>16</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>1</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>2</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>3</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>1000.0 Ohms</Sensor_Value_String>
+			<Sensor_Value_Number>1000.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>1</Sensor_Number>
+			<Sensor_Type>Output</Sensor_Type>
+			<Sensor_Name>Siren&#x2f; Strobe</Sensor_Name>
+			<Sensor_Enabled>ON</Sensor_Enabled>
+			<Sensor_Value_String>Inactive&#x2f;De-energized</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>2</Sensor_Number>
+			<Sensor_Type>Output</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Inactive&#x2f;De-energized</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+	</EventSensor>	<EventSensor>
+		<ES_Number>1</ES_Number>
+		<ES_Name>unnamed</ES_Name>
+		<ES_Configuration>8-CC</ES_Configuration>
+		<ES_State>Alive</ES_State>
+		<Sensor>
+			<Sensor_Number>1</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>2</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>3</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>4</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>5</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>6</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>7</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>8</Sensor_Number>
+			<Sensor_Type>Contact Closure</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>Open</Sensor_Value_String>
+			<Sensor_Value_Number>0</Sensor_Value_Number>
+			<Sensor_Status_String>Inactive</Sensor_Status_String>
+			<Sensor_Status_Value>2</Sensor_Status_Value>
+		</Sensor>
+	</EventSensor>	<EventSensor>
+		<ES_Number>7</ES_Number>
+		<ES_Name>Temp Top</ES_Name>
+		<ES_Configuration>1-TS</ES_Configuration>
+		<ES_State>Alive</ES_State>
+		<Sensor>
+			<Sensor_Number>1</Sensor_Number>
+			<Sensor_Type>Temperature</Sensor_Type>
+			<Sensor_Name>Temp Top</Sensor_Name>
+			<Sensor_Enabled>ON</Sensor_Enabled>
+			<Sensor_Value_String>19 C</Sensor_Value_String>
+			<Sensor_Value_Number>19</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+	</EventSensor>	<EventSensor>
+		<ES_Number>8</ES_Number>
+		<ES_Name>Temp Bottom</ES_Name>
+		<ES_Configuration>1-TS</ES_Configuration>
+		<ES_State>Alive</ES_State>
+		<Sensor>
+			<Sensor_Number>1</Sensor_Number>
+			<Sensor_Type>Temperature</Sensor_Type>
+			<Sensor_Name>Temp Bottom</Sensor_Name>
+			<Sensor_Enabled>ON</Sensor_Enabled>
+			<Sensor_Value_String>20 C</Sensor_Value_String>
+			<Sensor_Value_Number>20</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+	</EventSensor>	<EventSensor>
+		<ES_Number>16</ES_Number>
+		<ES_Name>Meters</ES_Name>
+		<ES_Configuration>48-VS</ES_Configuration>
+		<ES_State>Alive</ES_State>
+		<Sensor>
+			<Sensor_Number>1</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>Voltage Phase1</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>241 V</Sensor_Value_String>
+			<Sensor_Value_Number>241</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>2</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>Voltage Phase2</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>241 V</Sensor_Value_String>
+			<Sensor_Value_Number>241</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>3</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>Voltage Phase3</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>417 V</Sensor_Value_String>
+			<Sensor_Value_Number>417</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>4</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>Current Phase1</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>1.8 A</Sensor_Value_String>
+			<Sensor_Value_Number>1.8</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>5</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>Current Phase2</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.1 A</Sensor_Value_String>
+			<Sensor_Value_Number>0.1</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>6</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>Current Phase3</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 A</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>7</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>3Ph Active power</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>325.7 W</Sensor_Value_String>
+			<Sensor_Value_Number>325.7</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>8</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>3Ph Active energy</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>6986 kWh</Sensor_Value_String>
+			<Sensor_Value_Number>6986</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>9</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>3Ph Frequency</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>50.0 Hz</Sensor_Value_String>
+			<Sensor_Value_Number>50.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>10</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>3Ph Reactive Power</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Var</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>11</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>3Ph Apparent Power</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 VA</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>12</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>3Ph Power Factor</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.73 </Sensor_Value_String>
+			<Sensor_Value_Number>0.73</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>13</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>Power Phase1</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>316.1 W</Sensor_Value_String>
+			<Sensor_Value_Number>316.1</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>14</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>Power Phase2</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>9.6 W</Sensor_Value_String>
+			<Sensor_Value_Number>9.6</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>15</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>Power Phase3</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 W</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>16</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>17</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>18</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>19</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>20</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>21</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>22</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>23</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>24</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>25</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>26</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>27</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>28</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>29</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>30</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>31</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>32</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>33</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>34</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>35</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>36</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>37</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>38</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>39</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>40</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>41</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>42</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>43</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>44</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>45</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>46</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>47</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+		<Sensor>
+			<Sensor_Number>48</Sensor_Number>
+			<Sensor_Type>Analog</Sensor_Type>
+			<Sensor_Name>unnamed</Sensor_Name>
+			<Sensor_Enabled>OFF</Sensor_Enabled>
+			<Sensor_Value_String>0.0 Volts</Sensor_Value_String>
+			<Sensor_Value_Number>0.0</Sensor_Value_Number>
+			<Sensor_Status_String>Normal</Sensor_Status_String>
+			<Sensor_Status_Value>3</Sensor_Status_Value>
+		</Sensor>
+	</EventSensor>
+
+</Unit>

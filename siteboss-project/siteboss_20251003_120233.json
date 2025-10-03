@@ -1,0 +1,161 @@
+{
+  "unit": {
+    "siteName": "5Sky Demo Site",
+    "serial": "360050631",
+    "version": "2.12.480",
+    "build": "STD",
+    "hardware": "A44",
+    "timestamp": {
+      "date": "10/03/25",
+      "time": "12:01:27",
+      "lastUpdated": "2025-10-03T12:03:42.249952"
+    },
+    "location": {
+      "latitude": 49.702006766332,
+      "longitude": 14.0053179478874
+    },
+    "uptime": "763:21:49:24"
+  },
+  "sensors": [
+    {
+      "id": "INTERNAL_Contact_Closure_Door_Open___Front_1",
+      "group": "INTERNAL",
+      "groupState": "Alive",
+      "type": "Contact Closure",
+      "name": "Door Open - Front",
+      "number": "1",
+      "status": "Active",
+      "value": "Open",
+      "rawValue": "",
+      "units": "",
+      "enabled": true,
+      "alertLevel": "warning"
+    },
+    {
+      "id": "INTERNAL_Contact_Closure_Door_Open___Back_2",
+      "group": "INTERNAL",
+      "groupState": "Alive",
+      "type": "Contact Closure",
+      "name": "Door Open - Back",
+      "number": "2",
+      "status": "Active",
+      "value": "Open",
+      "rawValue": "",
+      "units": "",
+      "enabled": true,
+      "alertLevel": "warning"
+    },
+    {
+      "id": "INTERNAL_Contact_Closure_Smoke_Alarm_3",
+      "group": "INTERNAL",
+      "groupState": "Alive",
+      "type": "Contact Closure",
+      "name": "Smoke Alarm",
+      "number": "3",
+      "status": "Inactive",
+      "value": "Closed",
+      "rawValue": "",
+      "units": "",
+      "enabled": true,
+      "alertLevel": "normal"
+    },
+    {
+      "id": "INTERNAL_Contact_Closure_Motion_Alarm_4",
+      "group": "INTERNAL",
+      "groupState": "Alive",
+      "type": "Contact Closure",
+      "name": "Motion Alarm",
+      "number": "4",
+      "status": "Inactive",
+      "value": "Closed",
+      "rawValue": "",
+      "units": "",
+      "enabled": true,
+      "alertLevel": "normal"
+    },
+    {
+      "id": "INTERNAL_Contact_Closure_Flood_Alarm_5",
+      "group": "INTERNAL",
+      "groupState": "Alive",
+      "type": "Contact Closure",
+      "name": "Flood Alarm",
+      "number": "5",
+      "status": "Inactive",
+      "value": "Open",
+      "rawValue": "",
+      "units": "",
+      "enabled": true,
+      "alertLevel": "normal"
+    },
+    {
+      "id": "INTERNAL_Contact_Closure_Smoke_2_Alarm_6",
+      "group": "INTERNAL",
+      "groupState": "Alive",
+      "type": "Contact Closure",
+      "name": "Smoke 2 Alarm",
+      "number": "6",
+      "status": "Active",
+      "value": "Closed",
+      "rawValue": "",
+      "units": "",
+      "enabled": true,
+      "alertLevel": "critical"
+    },
+    {
+      "id": "INTERNAL_Output_Siren/_Strobe_1",
+      "group": "INTERNAL",
+      "groupState": "Alive",
+      "type": "Output",
+      "name": "Siren/ Strobe",
+      "number": "1",
+      "status": "Inactive",
+      "value": "Inactive/De-energized",
+      "rawValue": "",
+      "units": "",
+      "enabled": true,
+      "alertLevel": "normal"
+    },
+    {
+      "id": "Temp_Top_Temperature_Temp_Top_1",
+      "group": "Temp Top",
+      "groupState": "Alive",
+      "type": "Temperature",
+      "name": "Temp Top",
+      "number": "1",
+      "status": "Normal",
+      "value": "14 C",
+      "rawValue": "",
+      "units": "",
+      "enabled": true,
+      "alertLevel": "normal"
+    },
+    {
+      "id": "Temp_Bottom_Temperature_Temp_Bottom_1",
+      "group": "Temp Bottom",
+      "groupState": "Alive",
+      "type": "Temperature",
+      "name": "Temp Bottom",
+      "number": "1",
+      "status": "Normal",
+      "value": "15 C",
+      "rawValue": "",
+      "units": "",
+      "enabled": true,
+      "alertLevel": "normal"
+    }
+  ],
+  "summary": {
+    "totalSensors": 9,
+    "sensorsByType": {
+      "Contact Closure": 6,
+      "Output": 1,
+      "Temperature": 2
+    },
+    "alertCounts": {
+      "normal": 6,
+      "warning": 2,
+      "critical": 1
+    },
+    "lastPull": "2025-10-03T12:03:42.250057"
+  }
+}

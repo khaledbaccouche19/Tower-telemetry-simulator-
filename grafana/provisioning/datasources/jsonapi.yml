@@ -1,0 +1,10 @@
+apiVersion: 1
+
+datasources:
+  - name: Tower JSON
+    type: marcusolsson-json-datasource
+    access: proxy
+    url: http://host.docker.internal:8088
+    isDefault: false
+    jsonData:
+      tlsSkipVerify: true

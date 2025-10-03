@@ -1,0 +1,257 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>5Sky Demo Site - Login</title>
+<meta charset="iso-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="format-detection" content="telephone=no">
+<script type="text/javascript" src="pocketTools.js?v=2.12.480"></script>
+<link rel="stylesheet" href="UnitStyles.mini.css?v=2.12.480" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<div id="loginState"><script>var loginStatus = 0</script></div>
+<body>
+<script>
+if( self == top )
+document.getElementsByTagName( 'body' )[0].style.display = "block";
+else
+top.location = self.location;
+</script>
+<div class="siteContainer">
+<div id="messageAccordion" class="messageAccordion"></div>
+<div class="unitHeader">
+<a class="unitLink" href="https://www.asentria.com/wiki/Documents_by_Category" data-tooltip="Go to Product Knowledge Base." target="_blank">
+<img class="unitImage" src="images/unit.gif">
+</a>
+<div class="unitTitle">SiteBoss 360</div>
+<a class="logoTag" href="https://www.asentria.com/support/contact.aspx" data-tooltip="Contact Us!" target="_blank">
+<img class="asentriaLogo" src="images/logo.png" />
+</a>
+</div>
+<div id="stickyHeader" class="stickyHeader">
+<div class="logoInfo">
+<img class="asentriaLogo" src="images/logo.png">
+<div class="unitTitle">SiteBoss 360</div>
+</div>
+<div class="unitInfo">
+<div>
+Site Name:&nbsp;
+<span>5Sky Demo Site</span>
+</div>
+<div>
+Serial:&nbsp;
+<span>360050631</span>
+</div>
+<div>
+Version:&nbsp;
+<span>
+2.12.480&nbsp;
+STD
+</span>
+</div>
+</div>
+<div id="logoutBar" class="logoutBar" style="visibility: hidden;">
+<input type="button" value="Logout" id="logoutButton" class="blueButton" />
+</div>
+</div>
+<div id="miscContent" class="miscContent">
+<input type="hidden" id="sec.login.banner" onchange="ShowBanner();" />
+<div style="display: none;width: 960px; height: 300px;background-color: #e1e8f9;display:table-cell;vertical-align:middle;">
+<div class="loginWindow">
+<div id="loginAccordion" class="loginAccordion" style="width: 400px; overflow: auto;">
+<span id="login-header" class="sectionTitle" style="text-align: center;">Login</span>
+<div id="login-content" class="accordionContent">
+<table style="width: 400px;">
+<tbody>
+<tr id="userRow" style="display: none">
+<td>Username</td>
+<td style="width: 75%;">
+<input type="text" id="userField" name="username" maxlength="31" onKeyup="(function(event){ event = event || window.event; if( event.keyCode == 13 ) { document.getElementById('loginButton').click(); }})(event);" autocapitalize="off" autocorrect="off" />
+</td>
+</tr>
+<tr id="passwordRow" style="display: none">
+<td>Password</td>
+<td>
+<input type="password" id="passwordField" name="password" maxlength="64" autocomplete="off" onKeyup="(function(event){ event = event || window.event; if( event.keyCode == 13 ) { document.getElementById('loginButton').click(); }})(event);" autocapitalize="off" autocorrect="off" />
+</td>
+</tr>
+<tr id="newPasswordRow" style="display: none">
+<td id="passwordLabel">New Password</td>
+<td>
+<input type="password" id="newPasswordField" name="new_password" maxlength="64" autocomplete="off" onKeyup="CheckPasswords();(function(event){ event = event || window.event; if( event.keyCode == 13 ) { document.getElementById('loginButton').click(); }})(event);" onpaste="setTimeout(CheckPasswords,10);" autocapitalize="off" autocorrect="off" />
+</td>
+</tr>
+<tr id="confirmPasswordRow" style="display: none">
+<td id="passwordLabel">Confirm Password</td>
+<td>
+<input type="password" id="confirmPasswordField" name="new_password_confirm" maxlength="64" autocomplete="off" onKeyup="CheckPasswords();(function(event){ event = event || window.event; if( event.keyCode == 13 ) { document.getElementById('loginButton').click(); }})(event);" onpaste="setTimeout(CheckPasswords,10);" autocapitalize="off" autocorrect="off" />
+</td>
+</tr>
+</tbody>
+</table>
+<div id="loginButtonTooltip" class="inputTooltip">
+<input type="button" value="Login" id="loginButton" class="btn" style="float: right; overflow: hidden;" onclick="Login();">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer"></div>
+</div>
+<script>
+var loginWindowHandle, intervalHandle, loginHeader;
+var JSONText = {"keys":{"search":[{"filter":"sec.login.banner","item":[{"k":"","t":[0,""],"l":"512"}]}]}};
+if( navigator.appName == 'Microsoft Internet Explorer' || typeof window.orientation !== 'undefined' )
+loginWindowHandle = new pocketAccordion( { accordionID: 'loginAccordion', headerClass: "", speed: 1, expandOnInitialize: false, clickable: false } );
+else
+loginWindowHandle = new pocketAccordion( { accordionID: 'loginAccordion', headerClass: "", speed: 10, expandOnInitialize: true, clickable: false } );
+loginHeader = document.getElementById("login-header");
+EnableLoginContents();
+pocketMessenger.Initialize(
+{
+accordionID: "messageAccordion",
+onEmptyFunction: function()
+{
+document.getElementById("messageAccordion").style.display = "none";
+}
+});
+if( JSONText && JSONText.keys.search.length && JSONText.keys.search[0].item.length )
+{
+var bannerText = JSONText.keys.search[0].item[0].v;
+if( bannerText != "" && bannerText != undefined )
+pocketMessenger.SendMessage( bannerText, "info" );
+}
+function Login()
+{
+// Disable all fields
+document.getElementById("userField").disabled = true;
+document.getElementById("passwordField").disabled = true;
+document.getElementById("newPasswordField").disabled = true;
+document.getElementById("confirmPasswordField").disabled = true;
+loginWindowHandle.ForceClick( loginHeader );
+intervalHandle = setInterval( function()
+{
+if( document.getElementById("login-content").style.display == "none" )
+{
+clearInterval( intervalHandle );
+var submitString = "";
+var urlString = "index.html";
+if( document.getElementById("userRow").style.display != "none" )
+{
+urlString += "?commit=login";
+submitString = "username=" + document.getElementById("userField").value +
+"&password=" + document.getElementById("passwordField").value;
+}
+else
+{
+urlString += "?commit=change_password";
+submitString = "current_password=" + document.getElementById("passwordField").value +
+"&new_password=" + document.getElementById("newPasswordField").value +
+"&new_password_confirm=" + document.getElementById("confirmPasswordField").value;
+}
+pocketAJAX.SendRequest(
+{
+URL: urlString,
+onSuccessFunction : function( responseRequest )
+{
+// if the Unit Login page comes back, inject top most script into code....
+if( responseRequest.XHR.responseText.indexOf("<title>Login - 5Sky Demo Site</title>") != -1 )
+{
+LoadScript( responseRequest.XHR.responseText );
+if( loginStatus )
+{
+pocketMessenger.CloseMessages();
+pocketMessenger.SendMessage( "Login credentials require password change.\nPlease enter a new password for USER: " + document.getElementById("userField").value + ".", "warning" );
+pocketMessenger.SendMessage( "Password must be 8 characters long and contain 1 special character, uppercase, lowercase, and number.", "info" );
+document.getElementById("newPasswordField").value = "";
+document.getElementById("confirmPasswordField").value = "";
+EnableLoginContents();
+}
+else
+{
+pocketMessenger.CloseMessages();
+pocketMessenger.SendMessage( "Login credentials are incorrect. Please try again.", "error" );
+document.getElementById("passwordField").value = "";
+EnableLoginContents();
+document.getElementById("passwordField").focus();
+}
+}
+else if( document.URL.indexOf("UnitLogin.html") != -1 )
+window.location.href = "/";
+else
+location.reload();
+},
+timeout: 30000,
+data: submitString
+});
+}
+}, 100 );
+}
+function CheckPasswords()
+{
+var validatePasswordRegex = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[~!@#$%\^&*()\-_=+\|\[{\]};:'",<.>/?])/;
+var newPassword = document.getElementById("newPasswordField").value;
+var confirmPassword = document.getElementById("confirmPasswordField").value;
+if( newPassword != confirmPassword || newPassword.length < 8 || !validatePasswordRegex.test(newPassword) )
+{
+document.getElementById("loginButton").disabled = true;
+document.getElementById("loginButtonTooltip").setAttribute("data-tooltip", "Passwords do not match");
+}
+else
+{
+document.getElementById("loginButton").disabled = false;
+document.getElementById('loginButtonTooltip').removeAttribute("data-tooltip");
+}
+}
+function EnableLoginContents( changePassword )
+{
+document.getElementById("userField").disabled = false;
+document.getElementById("passwordField").disabled = false;
+document.getElementById("newPasswordField").disabled = false;
+document.getElementById("confirmPasswordField").disabled = false;
+if( loginStatus )
+{
+loginHeader.innerHTML = "Change Password";
+document.getElementById("loginButton").value = "Change Password";
+document.getElementById("userRow").style.display = "none";
+document.getElementById("passwordRow").style.display = "table-row";
+document.getElementById("newPasswordRow").style.display = "table-row";
+document.getElementById("confirmPasswordRow").style.display = "table-row";
+CheckPasswords();
+}
+else
+{
+loginHeader.innerHTML = "Login";
+document.getElementById("loginButton").value = "Login";
+document.getElementById("newPasswordRow").style.display = "none";
+document.getElementById("confirmPasswordRow").style.display = "none";
+document.getElementById("userRow").style.display = "table-row";
+document.getElementById("passwordRow").style.display = "table-row";
+}
+loginWindowHandle.ForceClick( loginHeader );
+if( loginStatus )
+document.getElementById("newPasswordField").focus();
+else
+document.getElementById("userField").focus();
+}
+function LoadScript( response )
+{
+var injectorDiv = document.createElement('div');
+injectorDiv.innerHTML = response;
+var scriptList = injectorDiv.getElementsByTagName('script');
+for( var i = 0; i < scriptList.length; ++i )
+{
+if( scriptList[i].parentNode.id == "loginState" || scriptList[i].id == "indexRedirect" )
+{
+var elementToAdd = document.createElement('script');
+elementToAdd.text = scriptList[i].innerHTML;
+document.getElementById("loginState").innerHTML = "";
+document.getElementById("loginState").appendChild(elementToAdd);
+}
+}
+}
+</script>
+</body>
+</html>

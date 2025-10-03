@@ -1,0 +1,78 @@
+{
+  "title": "Tower Health – Cards",
+  "uid": "tower-health-cards",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": true,
+  "templating": {
+    "list": [
+      {
+        "type": "query",
+        "name": "towerId",
+        "label": "Tower",
+        "datasource": null,
+        "query": "label_values(telemetry_ingest_saved_total, towerId)",
+        "refresh": 1,
+        "includeAll": true,
+        "allValue": ".*",
+        "multi": false
+      }
+    ]
+  },
+  "panels": [
+    {"type":"row","title":"SYSTEM HEALTH","gridPos":{"x":0,"y":0,"w":24,"h":1}},
+
+    {"type":"stat","title":"Battery Level","gridPos":{"x":0,"y":1,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"percent","decimals":0}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"battery\"}"}]},
+
+    {"type":"stat","title":"Temperature","gridPos":{"x":6,"y":1,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"celsius","decimals":2}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"temperature\"}"}]},
+
+    {"type":"stat","title":"Network Load","gridPos":{"x":12,"y":1,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"percent","decimals":1}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"network_load\"}"}]},
+
+    {"type":"stat","title":"Uptime","gridPos":{"x":18,"y":1,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"percent","decimals":0}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"uptime\"}"}]},
+
+    {"type":"row","title":"ENVIRONMENTAL","gridPos":{"x":0,"y":5,"w":24,"h":1}},
+
+    {"type":"stat","title":"Humidity","gridPos":{"x":0,"y":6,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"percent","decimals":1}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"humidity\"}"}]},
+
+    {"type":"stat","title":"Wind Speed","gridPos":{"x":6,"y":6,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"velocityms","decimals":2}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"wind_speed\"}"}]},
+
+    {"type":"stat","title":"Air Quality","gridPos":{"x":12,"y":6,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"none","decimals":2}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"air_quality\"}"}]},
+
+    {"type":"stat","title":"Signal Strength","gridPos":{"x":18,"y":6,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"dBm","decimals":2}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"signal_strength\"}"}]},
+
+    {"type":"row","title":"NETWORK PERFORMANCE","gridPos":{"x":0,"y":10,"w":24,"h":1}},
+
+    {"type":"stat","title":"Latency","gridPos":{"x":0,"y":11,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"ms","decimals":2}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"latency\"}"}]},
+
+    {"type":"stat","title":"Bandwidth","gridPos":{"x":6,"y":11,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"Mbps","decimals":2}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"bandwidth\"}"}]},
+
+    {"type":"stat","title":"Packet Loss","gridPos":{"x":12,"y":11,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"percent","decimals":2}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"packet_loss\"}"}]},
+
+    {"type":"stat","title":"Jitter","gridPos":{"x":18,"y":11,"w":6,"h":4},"datasource":null,
+      "fieldConfig":{"defaults":{"unit":"ms","decimals":0}},
+      "targets":[{"expr":"simulator_metric_value{towerId=~\"$towerId\", name=\"jitter\"}"}]}
+  ]
+}

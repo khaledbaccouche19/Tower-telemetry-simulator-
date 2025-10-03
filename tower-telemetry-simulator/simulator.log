@@ -6401,3 +6401,178 @@
 2025-10-03T14:10:17.545+02:00 DEBUG 10886 --- [nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
 2025-10-03T14:10:17.545+02:00 DEBUG 10886 --- [nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@23125b9a]]
 2025-10-03T14:10:17.545+02:00 DEBUG 10886 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:10:32.340+02:00 DEBUG 10886 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:10:32.340+02:00 DEBUG 10886 --- [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:10:32.340+02:00 DEBUG 10886 --- [nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:10:32.340+02:00 DEBUG 10886 --- [nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@2d2e889]]
+2025-10-03T14:10:32.340+02:00 DEBUG 10886 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:10:47.578+02:00 DEBUG 10886 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:10:47.579+02:00 DEBUG 10886 --- [nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:10:47.579+02:00 DEBUG 10886 --- [nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:10:47.580+02:00 DEBUG 10886 --- [nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@2e2fd51]]
+2025-10-03T14:10:47.580+02:00 DEBUG 10886 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:10:47.602+02:00 DEBUG 10886 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:10:47.602+02:00 DEBUG 10886 --- [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:10:47.602+02:00 DEBUG 10886 --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:10:47.602+02:00 DEBUG 10886 --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@6d106828]]
+2025-10-03T14:10:47.602+02:00 DEBUG 10886 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:10:47.625+02:00 DEBUG 10886 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:10:47.625+02:00 DEBUG 10886 --- [nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:10:47.627+02:00 DEBUG 10886 --- [nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:10:47.627+02:00 DEBUG 10886 --- [nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@7afd6eb9]]
+2025-10-03T14:10:47.628+02:00 DEBUG 10886 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:10:47.640+02:00 DEBUG 10886 --- [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:10:47.640+02:00 DEBUG 10886 --- [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:10:47.640+02:00 DEBUG 10886 --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:10:47.640+02:00 DEBUG 10886 --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@3d23972c]]
+2025-10-03T14:10:47.640+02:00 DEBUG 10886 --- [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:10:47.652+02:00 DEBUG 10886 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:10:47.652+02:00 DEBUG 10886 --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:10:47.652+02:00 DEBUG 10886 --- [nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:10:47.652+02:00 DEBUG 10886 --- [nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@4a799156]]
+2025-10-03T14:10:47.653+02:00 DEBUG 10886 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:10:54.954+02:00 DEBUG 10886 --- [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:10:54.955+02:00 DEBUG 10886 --- [nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:10:54.957+02:00 DEBUG 10886 --- [nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:10:54.957+02:00 DEBUG 10886 --- [nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@7496dc6c]]
+2025-10-03T14:10:54.958+02:00 DEBUG 10886 --- [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:03.531+02:00 DEBUG 10886 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:03.532+02:00 DEBUG 10886 --- [nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:03.532+02:00 DEBUG 10886 --- [nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:03.532+02:00 DEBUG 10886 --- [nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@48dacf26]]
+2025-10-03T14:11:03.532+02:00 DEBUG 10886 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:17.676+02:00 DEBUG 10886 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:17.677+02:00 DEBUG 10886 --- [nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:17.677+02:00 DEBUG 10886 --- [nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:17.677+02:00 DEBUG 10886 --- [nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@b12550a]]
+2025-10-03T14:11:17.677+02:00 DEBUG 10886 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:17.711+02:00 DEBUG 10886 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:17.711+02:00 DEBUG 10886 --- [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:17.711+02:00 DEBUG 10886 --- [nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:17.712+02:00 DEBUG 10886 --- [nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@7f052352]]
+2025-10-03T14:11:17.712+02:00 DEBUG 10886 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:17.730+02:00 DEBUG 10886 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:17.730+02:00 DEBUG 10886 --- [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:17.731+02:00 DEBUG 10886 --- [nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:17.731+02:00 DEBUG 10886 --- [nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@2ab31763]]
+2025-10-03T14:11:17.731+02:00 DEBUG 10886 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:17.750+02:00 DEBUG 10886 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:17.751+02:00 DEBUG 10886 --- [nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:17.751+02:00 DEBUG 10886 --- [nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:17.751+02:00 DEBUG 10886 --- [nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@7c973a6b]]
+2025-10-03T14:11:17.751+02:00 DEBUG 10886 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:17.765+02:00 DEBUG 10886 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:17.766+02:00 DEBUG 10886 --- [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:17.766+02:00 DEBUG 10886 --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:17.766+02:00 DEBUG 10886 --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@7a5240e2]]
+2025-10-03T14:11:17.766+02:00 DEBUG 10886 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:47.790+02:00 DEBUG 10886 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:47.791+02:00 DEBUG 10886 --- [nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:47.792+02:00 DEBUG 10886 --- [nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:47.793+02:00 DEBUG 10886 --- [nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@77753e2d]]
+2025-10-03T14:11:47.793+02:00 DEBUG 10886 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:47.827+02:00 DEBUG 10886 --- [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:47.828+02:00 DEBUG 10886 --- [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:47.828+02:00 DEBUG 10886 --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:47.828+02:00 DEBUG 10886 --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@65a8e3c2]]
+2025-10-03T14:11:47.828+02:00 DEBUG 10886 --- [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:47.844+02:00 DEBUG 10886 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:47.844+02:00 DEBUG 10886 --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:47.845+02:00 DEBUG 10886 --- [nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:47.845+02:00 DEBUG 10886 --- [nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@26371c]]
+2025-10-03T14:11:47.845+02:00 DEBUG 10886 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:47.861+02:00 DEBUG 10886 --- [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:47.861+02:00 DEBUG 10886 --- [nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:47.861+02:00 DEBUG 10886 --- [nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:47.861+02:00 DEBUG 10886 --- [nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@4c8fee7a]]
+2025-10-03T14:11:47.861+02:00 DEBUG 10886 --- [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:47.878+02:00 DEBUG 10886 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:47.878+02:00 DEBUG 10886 --- [nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:47.878+02:00 DEBUG 10886 --- [nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:47.878+02:00 DEBUG 10886 --- [nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@b53ba5b]]
+2025-10-03T14:11:47.878+02:00 DEBUG 10886 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:11:57.177+02:00 DEBUG 10886 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:11:57.177+02:00 DEBUG 10886 --- [nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:11:57.177+02:00 DEBUG 10886 --- [nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:11:57.177+02:00 DEBUG 10886 --- [nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@259a628e]]
+2025-10-03T14:11:57.177+02:00 DEBUG 10886 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:12:17.898+02:00 DEBUG 10886 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:12:17.899+02:00 DEBUG 10886 --- [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:12:17.900+02:00 DEBUG 10886 --- [nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:12:17.900+02:00 DEBUG 10886 --- [nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@8a80268]]
+2025-10-03T14:12:17.900+02:00 DEBUG 10886 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:12:17.925+02:00 DEBUG 10886 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:12:17.925+02:00 DEBUG 10886 --- [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:12:17.925+02:00 DEBUG 10886 --- [nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:12:17.925+02:00 DEBUG 10886 --- [nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@33638080]]
+2025-10-03T14:12:17.926+02:00 DEBUG 10886 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:12:17.947+02:00 DEBUG 10886 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:12:17.947+02:00 DEBUG 10886 --- [nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:12:17.948+02:00 DEBUG 10886 --- [nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:12:17.948+02:00 DEBUG 10886 --- [nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@336215ff]]
+2025-10-03T14:12:17.948+02:00 DEBUG 10886 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:12:17.963+02:00 DEBUG 10886 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:12:17.963+02:00 DEBUG 10886 --- [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:12:17.964+02:00 DEBUG 10886 --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:12:17.964+02:00 DEBUG 10886 --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@49f48efb]]
+2025-10-03T14:12:17.964+02:00 DEBUG 10886 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:12:17.981+02:00 DEBUG 10886 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:12:17.981+02:00 DEBUG 10886 --- [nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:12:17.981+02:00 DEBUG 10886 --- [nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:12:17.981+02:00 DEBUG 10886 --- [nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@7378a8a2]]
+2025-10-03T14:12:17.982+02:00 DEBUG 10886 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:12:48.005+02:00 DEBUG 10886 --- [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:12:48.005+02:00 DEBUG 10886 --- [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:12:48.005+02:00 DEBUG 10886 --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:12:48.005+02:00 DEBUG 10886 --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@2eda2f81]]
+2025-10-03T14:12:48.005+02:00 DEBUG 10886 --- [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:12:48.028+02:00 DEBUG 10886 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:12:48.029+02:00 DEBUG 10886 --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:12:48.029+02:00 DEBUG 10886 --- [nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:12:48.029+02:00 DEBUG 10886 --- [nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@6abd9ad8]]
+2025-10-03T14:12:48.029+02:00 DEBUG 10886 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:12:48.052+02:00 DEBUG 10886 --- [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:12:48.052+02:00 DEBUG 10886 --- [nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:12:48.053+02:00 DEBUG 10886 --- [nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:12:48.053+02:00 DEBUG 10886 --- [nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@56694612]]
+2025-10-03T14:12:48.053+02:00 DEBUG 10886 --- [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:12:48.068+02:00 DEBUG 10886 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:12:48.068+02:00 DEBUG 10886 --- [nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:12:48.068+02:00 DEBUG 10886 --- [nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:12:48.069+02:00 DEBUG 10886 --- [nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@6da0d589]]
+2025-10-03T14:12:48.069+02:00 DEBUG 10886 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:12:48.082+02:00 DEBUG 10886 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:12:48.082+02:00 DEBUG 10886 --- [nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:12:48.082+02:00 DEBUG 10886 --- [nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:12:48.082+02:00 DEBUG 10886 --- [nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@1f0dd88f]]
+2025-10-03T14:12:48.083+02:00 DEBUG 10886 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:12:48.590+02:00 DEBUG 10886 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:12:48.590+02:00 DEBUG 10886 --- [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:12:48.590+02:00 DEBUG 10886 --- [nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:12:48.591+02:00 DEBUG 10886 --- [nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@29155d73]]
+2025-10-03T14:12:48.591+02:00 DEBUG 10886 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:13:18.102+02:00 DEBUG 10886 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:13:18.102+02:00 DEBUG 10886 --- [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:13:18.102+02:00 DEBUG 10886 --- [nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:13:18.102+02:00 DEBUG 10886 --- [nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@e78e0ae]]
+2025-10-03T14:13:18.103+02:00 DEBUG 10886 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:13:18.125+02:00 DEBUG 10886 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:13:18.125+02:00 DEBUG 10886 --- [nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:13:18.126+02:00 DEBUG 10886 --- [nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:13:18.126+02:00 DEBUG 10886 --- [nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@709fb1fd]]
+2025-10-03T14:13:18.126+02:00 DEBUG 10886 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:13:18.147+02:00 DEBUG 10886 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:13:18.147+02:00 DEBUG 10886 --- [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:13:18.148+02:00 DEBUG 10886 --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:13:18.148+02:00 DEBUG 10886 --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@3cd763c6]]
+2025-10-03T14:13:18.148+02:00 DEBUG 10886 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:13:18.162+02:00 DEBUG 10886 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:13:18.162+02:00 DEBUG 10886 --- [nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:13:18.162+02:00 DEBUG 10886 --- [nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:13:18.162+02:00 DEBUG 10886 --- [nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@7502b739]]
+2025-10-03T14:13:18.162+02:00 DEBUG 10886 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-03T14:13:18.177+02:00 DEBUG 10886 --- [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/telemetry/live", parameters={}
+2025-10-03T14:13:18.177+02:00 DEBUG 10886 --- [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.telemetry.TelemetryController#getLiveTelemetry()
+2025-10-03T14:13:18.178+02:00 DEBUG 10886 --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2025-10-03T14:13:18.178+02:00 DEBUG 10886 --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.example.telemetry.TelemetryData@7129f1cf]]
+2025-10-03T14:13:18.178+02:00 DEBUG 10886 --- [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

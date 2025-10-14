@@ -1,0 +1,87 @@
+# Prometheus Recording Rules for JSON-based Metrics
+# These rules transform existing metrics into more useful formats
+
+groups:
+  - name: siteboss_json_transforms
+    rules:
+      # Transform sensor values into alarm status
+      - record: siteboss_alarm_status
+        expr: |
+          (
+            siteboss_sensor_value{name="Door Open - Front"} > 0 or
+            siteboss_sensor_value{name="Door Open - Back"} > 0
+          ) * 1
+        labels:
+          alarm_type: "door_open"
+          severity: "warning"
+          
+      - record: siteboss_alarm_status
+        expr: |
+          (
+            siteboss_sensor_value{name="Smoke 2 Alarm"} > 0
+          ) * 2
+        labels:
+          alarm_type: "smoke_detected"
+          severity: "critical"
+          
+      # Temperature alerts
+      - record: siteboss_temperature_alert
+        expr: |
+          (
+            siteboss_sensor_value{name="Temp Top"} > 25 or
+            siteboss_sensor_value{name="Temp Bottom"} > 25
+          ) * 1
+        labels:
+          sensor: "temperature_high"
+          threshold: "25c"
+          
+      - record: siteboss_temperature_alert
+        expr: |
+          (
+            siteboss_sensor_value{name="Temp Top"} < 0 or
+            siteboss_sensor_value{name="Temp Bottom"} < 0
+          ) * 1
+        labels:
+          sensor: "temperature_low"
+          threshold: "0c"
+          
+      # System health score
+      - record: siteboss_health_score
+        expr: |
+          100 - (
+            siteboss_pull_errors_total * 10 +
+            siteboss_alarm_status{severity="critical"} * 50 +
+            siteboss_alarm_status{severity="warning"} * 20
+          )
+        labels:
+          component: "siteboss_overall"
+          
+      # Uptime in days
+      - record: siteboss_uptime_days
+        expr: |
+          siteboss_unit_uptime_hours / 24
+        labels:
+          unit: "days"
+          
+      # Alert summary
+      - record: siteboss_active_alerts_total
+        expr: |
+          sum(siteboss_alarm_status > 0)
+        labels:
+          status: "active"
+          
+      # Temperature average
+      - record: siteboss_temperature_average
+        expr: |
+          (
+            siteboss_sensor_value{name="Temp Top"} +
+            siteboss_sensor_value{name="Temp Bottom"}
+          ) / 2
+        labels:
+          type: "average"
+
+
+
+
+
+

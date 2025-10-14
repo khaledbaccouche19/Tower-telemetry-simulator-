@@ -109,3 +109,4 @@ echo ""
 echo "📚 Documentation:"
 echo "   cat HOW_TO_USE.md"
 echo ""
+

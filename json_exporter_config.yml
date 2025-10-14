@@ -1,0 +1,82 @@
+# JSON Exporter Configuration for SiteBoss Data
+# This shows how to extract metrics from JSON APIs
+
+modules:
+  siteboss_alarms:
+    # URL to scrape JSON data from
+    url: http://localhost:8088/api/siteboss/latest
+    
+    # JSONPath expressions to extract values
+    metrics:
+      # Extract alert counts by level
+      - name: siteboss_alert_count_json
+        type: gauge
+        help: "SiteBoss alert count extracted from JSON"
+        path: $.data.summary.alertCounts.{level}
+        labels:
+          towerId: "49"
+          level: "@.level"
+        value: "@.count"
+        
+      # Extract individual sensor status
+      - name: siteboss_sensor_status_json
+        type: gauge
+        help: "SiteBoss sensor status (0=normal, 1=warning, 2=critical)"
+        path: $.data.sensors[*]
+        labels:
+          towerId: "49"
+          sensorName: "@.name"
+          sensorId: "@.id"
+          sensorType: "@.type"
+        value: |
+          @.alertLevel == "critical" ? 2 :
+          @.alertLevel == "warning" ? 1 : 0
+          
+      # Extract temperature values
+      - name: siteboss_temperature_json
+        type: gauge
+        help: "SiteBoss temperature sensor readings"
+        path: $.data.sensors[?(@.type=="Temperature")]
+        labels:
+          towerId: "49"
+          sensorName: "@.name"
+          location: "@.group"
+        value: |
+          parseFloat(@.value.replace(/[^\d.-]/g, ''))
+          
+      # Extract sensor counts by type
+      - name: siteboss_sensor_type_count_json
+        type: gauge
+        help: "SiteBoss sensor count by type"
+        path: $.data.summary.sensorsByType
+        labels:
+          towerId: "49"
+          sensorType: "@.type"
+        value: "@.count"
+        
+      # Extract unit information
+      - name: siteboss_unit_uptime_json
+        type: gauge
+        help: "SiteBoss unit uptime in hours"
+        path: $.data.unit.uptime
+        labels:
+          towerId: "49"
+          siteName: "$.data.unit.siteName"
+          serial: "$.data.unit.serial"
+        value: |
+          # Parse uptime string like "764:04:36:23" (days:hours:minutes:seconds)
+          var parts = @.split(':');
+          if (parts.length >= 4) {
+            var days = parseInt(parts[0]) || 0;
+            var hours = parseInt(parts[1]) || 0;
+            var minutes = parseInt(parts[2]) || 0;
+            var seconds = parseInt(parts[3]) || 0;
+            return (days * 24 + hours + minutes/60 + seconds/3600);
+          }
+          return 0
+
+
+
+
+
+

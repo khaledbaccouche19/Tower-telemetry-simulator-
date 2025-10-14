@@ -1,17 +1,132 @@
 package com.example.telemetry;
 
 import org.springframework.stereotype.Service;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Gauge;
+import io.micrometer.core.instrument.Tags;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class TelemetrySimulationService {
     
     private Random random = new Random();
+    private final MeterRegistry meterRegistry;
+    
+    // Telemetry metric holders
+    private final AtomicReference<Double> batteryLevel = new AtomicReference<>(100.0);
+    private final AtomicReference<Double> temperature = new AtomicReference<>(25.0);
+    private final AtomicReference<Double> humidity = new AtomicReference<>(55.0);
+    private final AtomicReference<Double> windSpeed = new AtomicReference<>(12.0);
+    private final AtomicReference<Double> signalStrength = new AtomicReference<>(-65.0);
+    private final AtomicReference<Double> networkLoad = new AtomicReference<>(50.0);
+    private final AtomicReference<Double> cpuUtilization = new AtomicReference<>(40.0);
+    private final AtomicReference<Double> memoryUsage = new AtomicReference<>(60.0);
+    private final AtomicReference<Double> voltage = new AtomicReference<>(12.5);
+    private final AtomicReference<Double> responseTime = new AtomicReference<>(20.0);
+    private final AtomicReference<Double> throughput = new AtomicReference<>(500.0);
+    private final AtomicReference<Double> errorRate = new AtomicReference<>(0.01);
+    private final AtomicReference<Double> packetLoss = new AtomicReference<>(0.01);
+    private final AtomicReference<Double> latency = new AtomicReference<>(18.0);
+    private final AtomicReference<Double> jitter = new AtomicReference<>(1.0);
+    private final AtomicReference<Double> bandwidth = new AtomicReference<>(600.0);
+    private final AtomicReference<Double> vibration = new AtomicReference<>(0.01);
+    private final AtomicReference<Double> uvIndex = new AtomicReference<>(0.66);
+    private final AtomicReference<Double> precipitation = new AtomicReference<>(0.0);
+    private final AtomicReference<Double> pressure = new AtomicReference<>(1013.0);
+    
+    public TelemetrySimulationService(MeterRegistry meterRegistry) {
+        this.meterRegistry = meterRegistry;
+        initializeTelemetryMetrics();
+    }
+    
+    private void initializeTelemetryMetrics() {
+        // Initialize all telemetry metrics
+        Gauge.builder("tower_telemetry_battery_percent", batteryLevel, AtomicReference::get)
+            .description("Tower battery level percentage")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_temperature_celsius", temperature, AtomicReference::get)
+            .description("Tower equipment temperature")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_humidity_percent", humidity, AtomicReference::get)
+            .description("Ambient humidity percentage")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_wind_speed_kph", windSpeed, AtomicReference::get)
+            .description("Wind speed in km/h")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_signal_strength_dbm", signalStrength, AtomicReference::get)
+            .description("Signal strength in dBm")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_network_load_percent", networkLoad, AtomicReference::get)
+            .description("Network load percentage")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_cpu_utilization_percent", cpuUtilization, AtomicReference::get)
+            .description("CPU utilization percentage")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_memory_usage_percent", memoryUsage, AtomicReference::get)
+            .description("Memory usage percentage")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_voltage_volts", voltage, AtomicReference::get)
+            .description("System voltage in volts")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_response_time_ms", responseTime, AtomicReference::get)
+            .description("Response time in milliseconds")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_throughput_mbps", throughput, AtomicReference::get)
+            .description("Network throughput in Mbps")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_error_rate_percent", errorRate, AtomicReference::get)
+            .description("Error rate percentage")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_packet_loss_percent", packetLoss, AtomicReference::get)
+            .description("Packet loss percentage")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_latency_ms", latency, AtomicReference::get)
+            .description("Network latency in milliseconds")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_jitter_ms", jitter, AtomicReference::get)
+            .description("Network jitter in milliseconds")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_bandwidth_mbps", bandwidth, AtomicReference::get)
+            .description("Available bandwidth in Mbps")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_vibration_g", vibration, AtomicReference::get)
+            .description("Vibration level in g-force")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_uv_index", uvIndex, AtomicReference::get)
+            .description("UV index")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_precipitation_mm", precipitation, AtomicReference::get)
+            .description("Precipitation in mm")
+            .register(meterRegistry);
+            
+        Gauge.builder("tower_telemetry_pressure_hpa", pressure, AtomicReference::get)
+            .description("Atmospheric pressure in hPa")
+            .register(meterRegistry);
+    }
     
     // Environmental base values that change slowly over time
     private double baseTemperature = 25.0; // More realistic base temperature
@@ -69,12 +184,17 @@ public class TelemetrySimulationService {
         data.setHumidity(Math.max(30.0, Math.min(85.0, humidityBase + humidityVariation)));
         
         // Wind affects multiple parameters
-        double windSpeed = baseWindSpeed + (random.nextGaussian() * 0.2); // Tiny variation
-        data.setWindSpeed(Math.max(2.0, Math.min(35.0, windSpeed)));
-        data.setWindDirection(getRealisticWindDirection(windSpeed));
+        double windSpeedValue = baseWindSpeed + (random.nextGaussian() * 0.2); // Tiny variation
+        data.setWindSpeed(Math.max(2.0, Math.min(35.0, windSpeedValue)));
+        data.setWindDirection(getRealisticWindDirection(windSpeedValue));
+        
+        // Update Prometheus metrics with generated values
+        this.temperature.set(data.getTemperature());
+        this.humidity.set(data.getHumidity());
+        this.windSpeed.set(data.getWindSpeed());
         
         // Air quality correlates with humidity, wind, and time of day
-        double airQualityBase = 75.0 - (data.getHumidity() - 50.0) * 0.1 + (windSpeed * 0.05); // Smaller correlations
+        double airQualityBase = 75.0 - (data.getHumidity() - 50.0) * 0.1 + (windSpeedValue * 0.05); // Smaller correlations
         double rushHourEffect = (hour >= 7 && hour <= 9) || (hour >= 17 && hour <= 19) ? -1.0 : 0.0; // Smaller effect
         data.setAirQuality(Math.max(40.0, Math.min(95.0, airQualityBase + rushHourEffect + (random.nextGaussian() * 0.1))));
         
@@ -114,7 +234,7 @@ public class TelemetrySimulationService {
         // Signal strength correlates with environmental conditions
         double signalBase = -65.0;
         double weatherEffect = (data.getHumidity() > 70.0) ? 0.1 : 0.0; // Minimal weather effect
-        double windEffect = (windSpeed > 20.0) ? 0.05 : 0.0; // Minimal wind effect
+        double windEffect = (windSpeedValue > 20.0) ? 0.05 : 0.0; // Minimal wind effect
         double signalStrength = signalBase + weatherEffect + windEffect + (random.nextGaussian() * 0.02); // Minimal variation
         data.setSignalStrength(Math.max(-66.0, Math.min(-64.0, signalStrength)));
         
@@ -170,6 +290,25 @@ public class TelemetrySimulationService {
         // Fix timestamp formatting issue - use the exact format requested
         String timestamp = LocalDateTime.now().atZone(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT);
         data.setTimestamp(timestamp);
+        
+        // Update all Prometheus metrics with generated values
+        this.batteryLevel.set(data.getBattery());
+        this.networkLoad.set(data.getNetworkLoad());
+        this.signalStrength.set(data.getSignalStrength());
+        this.cpuUtilization.set(data.getCpuUtilization());
+        this.memoryUsage.set(data.getMemoryUsage());
+        this.voltage.set(data.getVoltage());
+        this.responseTime.set(data.getResponseTime());
+        this.throughput.set(data.getThroughput());
+        this.errorRate.set(data.getErrorRate());
+        this.packetLoss.set(data.getPacketLoss());
+        this.latency.set(data.getLatency());
+        this.jitter.set(data.getJitter());
+        this.bandwidth.set(data.getBandwidth());
+        this.vibration.set(data.getVibration());
+        this.uvIndex.set(data.getUvIndex());
+        this.precipitation.set(data.getPrecipitation());
+        this.pressure.set(data.getPressure());
         
         return data;
     }

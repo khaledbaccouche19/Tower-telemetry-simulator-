@@ -1,0 +1,636 @@
+{
+  "dashboard": {
+    "__requires": [
+      {
+        "type": "panel",
+        "id": "gauge",
+        "name": "Gauge",
+        "version": ""
+      },
+      {
+        "type": "panel",
+        "id": "stat",
+        "name": "Stat",
+        "version": ""
+      },
+      {
+        "type": "panel",
+        "id": "timeseries",
+        "name": "Time series",
+        "version": ""
+      },
+      {
+        "type": "panel",
+        "id": "bargauge",
+        "name": "Bar gauge",
+        "version": ""
+      },
+      {
+        "type": "panel",
+        "id": "text",
+        "name": "Text",
+        "version": ""
+      },
+      {
+        "type": "datasource",
+        "id": "prometheus",
+        "name": "Prometheus",
+        "version": "1.0.0"
+      }
+    ],
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": null,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "collapsed": false,
+        "datasource": null,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1,
+        "panels": [],
+        "title": "🚨 SiteBoss Alarm & Sensor Monitoring - Tower $towerId",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "eezy3koupcglcb"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 1
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 0,
+          "y": 1
+        },
+        "id": 2,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "eezy3koupcglcb"
+            },
+            "expr": "siteboss_sensor_value{name=\"Temp Top\",towerId=\"$towerId\"}",
+            "interval": "",
+            "legendFormat": "Top Temperature",
+            "refId": "A"
+          }
+        ],
+        "title": "🌡️ Top Temperature",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "eezy3koupcglcb"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 1
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 6,
+          "y": 1
+        },
+        "id": 3,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "eezy3koupcglcb"
+            },
+            "expr": "siteboss_sensor_value{name=\"Temp Bottom\",towerId=\"$towerId\"}",
+            "interval": "",
+            "legendFormat": "Bottom Temperature",
+            "refId": "A"
+          }
+        ],
+        "title": "🌡️ Bottom Temperature",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "eezy3koupcglcb"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "blue",
+                  "value": 1
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 12,
+          "y": 1
+        },
+        "id": 4,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "eezy3koupcglcb"
+            },
+            "expr": "siteboss_pull_success_total{towerId=\"$towerId\"}",
+            "interval": "",
+            "legendFormat": "Successful Pulls",
+            "refId": "A"
+          }
+        ],
+        "title": "✅ Successful Pulls",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "eezy3koupcglcb"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 1
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 18,
+          "y": 1
+        },
+        "id": 5,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "eezy3koupcglcb"
+            },
+            "expr": "siteboss_pull_errors_total{towerId=\"$towerId\"}",
+            "interval": "",
+            "legendFormat": "Pull Errors",
+            "refId": "A"
+          }
+        ],
+        "title": "❌ Pull Errors",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "eezy3koupcglcb"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "vis": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "never",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 7
+        },
+        "id": 6,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "eezy3koupcglcb"
+            },
+            "expr": "siteboss_sensor_value{name=\"Temp Bottom\",towerId=\"$towerId\"}",
+            "interval": "",
+            "legendFormat": "🌡️ Bottom Temperature",
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "eezy3koupcglcb"
+            },
+            "expr": "siteboss_sensor_value{name=\"Temp Top\",towerId=\"$towerId\"}",
+            "interval": "",
+            "legendFormat": "🌡️ Top Temperature",
+            "refId": "B"
+          }
+        ],
+        "title": "🌡️ Temperature Trends",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "eezy3koupcglcb"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "vis": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "never",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 7
+        },
+        "id": 7,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "eezy3koupcglcb"
+            },
+            "expr": "rate(siteboss_pull_success_total{towerId=\"$towerId\"}[5m])",
+            "interval": "",
+            "legendFormat": "✅ Success Rate",
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "eezy3koupcglcb"
+            },
+            "expr": "rate(siteboss_pull_errors_total{towerId=\"$towerId\"}[5m])",
+            "interval": "",
+            "legendFormat": "❌ Error Rate",
+            "refId": "B"
+          }
+        ],
+        "title": "📊 Pull Performance",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "text",
+          "uid": "text"
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 15
+        },
+        "id": 8,
+        "options": {
+          "content": "## 🚨 Current SiteBoss Alarm Status\n\n**Based on latest data from Tower $towerId:**\n\n### 🏗️ Unit Information\n- **Site Name:** 5Sky Demo Site\n- **Serial Number:** 360050631\n- **Version:** 2.12.480\n- **Hardware:** A44\n- **Uptime:** 764+ days\n\n### 🚨 **CRITICAL ALERTS:**\n1. **Smoke 2 Alarm** - **ACTIVE** (Immediate attention required!)\n\n### ⚠️ **WARNING ALERTS:**\n1. **Front Door** - **OPEN** (Security risk)\n2. **Back Door** - **OPEN** (Security risk)\n\n### ✅ **NORMAL SENSORS:**\n1. **Smoke Alarm 1** - Normal\n2. **Motion Alarm** - Normal\n3. **Flood Alarm** - Normal\n4. **Siren/Strobe** - Normal\n5. **Top Temperature** - Normal (17°C)\n6. **Bottom Temperature** - Normal (18°C)\n\n### 📊 **Summary:**\n- **Total Sensors:** 9 (6 Contact Closures, 1 Output, 2 Temperature)\n- **Critical:** 1 alert\n- **Warning:** 2 alerts\n- **Normal:** 6 sensors\n\n### 🔧 **Recommended Actions:**\n1. **IMMEDIATE:** Investigate Smoke 2 Alarm activation\n2. **SECURITY:** Check why both doors are open\n3. **MONITOR:** Continue monitoring temperature sensors\n\n---\n\n*Data refreshed every 5 seconds from SiteBoss device*\n",
+          "mode": "markdown"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [],
+        "title": "📋 Live Alarm Status Report",
+        "type": "text"
+      }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 27,
+    "style": "dark",
+    "tags": [
+      "5sky",
+      "siteboss",
+      "alarms",
+      "live"
+    ],
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "selected": false,
+            "text": "49",
+            "value": "49"
+          },
+          "hide": 0,
+          "label": "Tower ID",
+          "name": "towerId",
+          "options": [
+            {
+              "selected": true,
+              "text": "49",
+              "value": "49"
+            }
+          ],
+          "query": "49",
+          "skipUrlSync": false,
+          "type": "custom"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "timepicker": {
+      "hidden": false,
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ],
+      "type": "timepicker"
+    },
+    "timezone": "browser",
+    "title": "SiteBoss Live Alarm Status",
+    "uid": null,
+    "version": 1,
+    "description": "Live monitoring of SiteBoss alarms and sensor status with real-time data"
+  },
+  "overwrite": true
+}
+
+
+
+
+
+

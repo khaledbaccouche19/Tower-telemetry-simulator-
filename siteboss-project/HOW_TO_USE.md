@@ -250,3 +250,4 @@ tar -czf siteboss_backup_$(date +%Y%m%d).tar.gz *.json *.xml
 **Last Updated**: October 3, 2025  
 **Version**: 1.0  
 **Tested With**: SiteBoss v2.12.480, Python 3.13, Playwright 1.55.0
+

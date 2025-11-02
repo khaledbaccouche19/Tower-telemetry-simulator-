@@ -1,26 +1,44 @@
-# Local Chronos AI Service (CPU)
+# AI Analytics Service (FastAPI + Gemini)
 
-## Setup (macOS)
+FastAPI microservice that aggregates tower context (telemetry, SiteBoss, hardware, maintenance) and generates insights/alerts using Google Gemini.
 
-```
-cd /Users/mac/Desktop/PFE/Project/ai-service
-python3 -m venv venv
+## Setup
+
+```bash
+cd ai-service
+python -m venv venv
 source venv/bin/activate
-pip install -U "chronos-forecasting[torch]" fastapi uvicorn pydantic numpy
-```
-
-## Run
-
-```
+pip install -r requirements.txt  # or: pip install fastapi uvicorn pydantic google-generativeai requests
+export GEMINI_API_KEY=YOUR_KEY_HERE
 uvicorn app:app --host 127.0.0.1 --port 8000
 ```
 
-## Test
+Health check: `GET http://127.0.0.1:8000/`
 
-```
-curl -s -X POST http://127.0.0.1:8000/predict \
-  -H 'Content-Type: application/json' \
-  -d '{"series":[32.1,32.5,32.9,33.0,33.2,33.1,33.4,33.6,33.8,33.7], "horizon": 20}'
-```
+## Endpoints (selection)
 
-Integrate by POSTing recent metric windows from the backend to `/predict`. The response contains a forecast and a simple severity signal for building alerts.
+- `POST /chat` — Chat with system/tower context
+- `GET /tower/{id}/insights` — Generate a concise analysis for a specific tower
+- `POST /generate-all-alerts` — Manually trigger analysis and alert creation for all towers
+- `POST /auto-alerts/toggle` — Toggle background auto‑alert loop (disabled by default to save quota)
+- `GET /` — Health check (status + auto‑alert flag)
+
+## Data Sources
+
+- Backend (`8088`): towers, hardware, maintenance, alerts
+- Telemetry simulator (`8080`): `/api/telemetry/live`
+- SiteBoss data via backend integration
+
+## Deduplication
+
+Before creating an alert, the service fetches unresolved alerts for the tower and prevents duplicates by comparing titles/messages.
+
+## Quotas & Safety
+
+- Keep `auto_alerting_enabled = False` (default) during development to avoid exhausting Gemini quota
+- Prefer `/generate-all-alerts` for demos and screenshots
+
+## Thesis Tips
+
+- Capture: `/chat` responses (tower/system), manual alert generation, health endpoint, and a snippet of generated alerts viewed from the backend
+- Mention how secrets are provided via environment variables; do not commit real keys

@@ -6,15 +6,15 @@
     "build": "STD",
     "hardware": "A44",
     "timestamp": {
-      "date": "10/14/25",
-      "time": "15:47:51",
-      "lastUpdated": "2025-10-14T15:49:53.175975"
+      "date": "11/02/25",
+      "time": "13:23:45",
+      "lastUpdated": "2025-11-02T14:00:08.032809"
     },
     "location": {
       "latitude": 49.702006766332,
       "longitude": 14.0053179478874
     },
-    "uptime": "775:01:35:49"
+    "uptime": "8:04:05:11"
   },
   "sensors": [
     {
@@ -123,7 +123,7 @@
       "name": "Temp Top",
       "number": "1",
       "status": "Normal",
-      "value": "20 C",
+      "value": "15 C",
       "rawValue": "",
       "units": "",
       "enabled": true,
@@ -137,7 +137,7 @@
       "name": "Temp Bottom",
       "number": "1",
       "status": "Normal",
-      "value": "21 C",
+      "value": "16 C",
       "rawValue": "",
       "units": "",
       "enabled": true,
@@ -156,6 +156,6 @@
       "warning": 2,
       "critical": 1
     },
-    "lastPull": "2025-10-14T15:49:53.176052"
+    "lastPull": "2025-11-02T14:00:08.032911"
   }
 }

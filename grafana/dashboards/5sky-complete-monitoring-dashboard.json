@@ -26,7 +26,7 @@
         }
       ]
     },
-    "description": "Complete monitoring dashboard for 5Sky towers with comprehensive telemetry and system monitoring",
+    "description": "Complete monitoring dashboard for 5Sky towers with SiteBoss and Simulator telemetry data",
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 0,
@@ -128,7 +128,7 @@
         "targets": [
           {
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "rate(siteboss_pull_success_total{towerId=\"$towerId\"}[5m]) / rate(siteboss_pull_started_total{towerId=\"$towerId\"}[5m]) * 100",
+            "expr": "((rate(siteboss_pull_success_total{towerId=\"$towerId\"}[5m]) / rate(siteboss_pull_started_total{towerId=\"$towerId\"}[5m])) * 100) or vector(0)",
             "interval": "",
             "legendFormat": "SiteBoss Success Rate",
             "refId": "A"
@@ -177,7 +177,7 @@
         "gridPos": {"h": 1, "w": 24, "x": 0, "y": 9},
         "id": 5,
         "panels": [],
-        "title": "🌍 Environmental & Weather Monitoring",
+        "title": "📊 SiteBoss Pull Activity & Performance",
         "type": "row"
       },
       {
@@ -204,80 +204,164 @@
             },
             "mappings": [],
             "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "red", "value": 80}]},
-            "unit": "hpa"
+            "unit": "short"
           },
           "overrides": []
         },
-        "gridPos": {"h": 6, "w": 8, "x": 0, "y": 10},
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 10},
+        "id": 6,
+        "options": {
+          "legend": {"calcs": [], "displayMode": "list", "placement": "bottom"},
+          "tooltip": {"mode": "single"}
+        },
+        "targets": [
+          {
+            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+            "expr": "rate(siteboss_pull_started_total{towerId=\"$towerId\"}[5m]) * 60",
+            "interval": "",
+            "legendFormat": "🚀 Pulls Started/min",
+            "refId": "A"
+          },
+          {
+            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+            "expr": "rate(siteboss_pull_success_total{towerId=\"$towerId\"}[5m]) * 60",
+            "interval": "",
+            "legendFormat": "✅ Successful/min",
+            "refId": "B"
+          },
+          {
+            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+            "expr": "rate(siteboss_pull_errors_total{towerId=\"$towerId\"}[5m]) * 60",
+            "interval": "",
+            "legendFormat": "❌ Errors/min",
+            "refId": "C"
+          }
+        ],
+        "title": "SiteBoss Pull Activity (per minute)",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "gradientMode": "none",
+              "hideFrom": {"legend": false, "tooltip": false, "vis": false},
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {"type": "linear"},
+              "showPoints": "never",
+              "spanNulls": false,
+              "stacking": {"group": "A", "mode": "none"},
+              "thresholdsStyle": {"mode": "off"}
+            },
+            "mappings": [],
+            "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "red", "value": 80}]},
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 10},
+        "id": 7,
+        "options": {
+          "legend": {"calcs": [], "displayMode": "list", "placement": "bottom"},
+          "tooltip": {"mode": "single"}
+        },
+        "targets": [
+          {
+            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+            "expr": "rate(siteboss_pull_duration_seconds_sum[5m]) / rate(siteboss_pull_duration_seconds_count[5m])",
+            "interval": "",
+            "legendFormat": "⏱️ Average Duration",
+            "refId": "A"
+          }
+        ],
+        "title": "SiteBoss Pull Duration",
+        "type": "timeseries"
+      },
+      {
+        "collapsed": false,
+        "datasource": null,
+        "gridPos": {"h": 1, "w": 24, "x": 0, "y": 18},
+        "id": 8,
+        "panels": [],
+        "title": "📡 SiteBoss Sensor & Alert Data",
+        "type": "row"
+      },
+      {
+        "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "thresholds"},
+            "mappings": [],
+            "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 5}, {"color": "red", "value": 10}]},
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {"h": 6, "w": 6, "x": 0, "y": 19},
         "id": 24,
         "options": {
-          "legend": {"calcs": [], "displayMode": "list", "placement": "bottom"},
-          "tooltip": {"mode": "single"}
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
+          "textMode": "auto"
         },
+        "pluginVersion": "8.2.5",
         "targets": [
           {
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_pressure_hpa",
+            "expr": "siteboss_alert_count{towerId=\"$towerId\"}",
             "interval": "",
-            "legendFormat": "🌬️ Atmospheric Pressure",
+            "legendFormat": "Active Alerts",
             "refId": "A"
           }
         ],
-        "title": "Atmospheric Pressure",
-        "type": "timeseries"
+        "title": "SiteBoss Alert Count",
+        "type": "stat"
       },
       {
         "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
         "fieldConfig": {
           "defaults": {
-            "color": {"mode": "palette-classic"},
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 10,
-              "gradientMode": "none",
-              "hideFrom": {"legend": false, "tooltip": false, "vis": false},
-              "lineInterpolation": "linear",
-              "lineWidth": 2,
-              "pointSize": 5,
-              "scaleDistribution": {"type": "linear"},
-              "showPoints": "never",
-              "spanNulls": false,
-              "stacking": {"group": "A", "mode": "none"},
-              "thresholdsStyle": {"mode": "off"}
-            },
+            "color": {"mode": "thresholds"},
             "mappings": [],
-            "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "red", "value": 80}]},
-            "unit": "mm"
+            "thresholds": {"mode": "absolute", "steps": [{"color": "red", "value": null}, {"color": "yellow", "value": 5}, {"color": "green", "value": 10}]},
+            "unit": "short"
           },
           "overrides": []
         },
-        "gridPos": {"h": 6, "w": 8, "x": 8, "y": 10},
+        "gridPos": {"h": 6, "w": 6, "x": 6, "y": 19},
         "id": 25,
         "options": {
-          "legend": {"calcs": [], "displayMode": "list", "placement": "bottom"},
-          "tooltip": {"mode": "single"}
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
+          "textMode": "auto"
         },
+        "pluginVersion": "8.2.5",
         "targets": [
           {
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_precipitation_mm",
+            "expr": "siteboss_sensor_count{towerId=\"$towerId\"}",
             "interval": "",
-            "legendFormat": "🌧️ Precipitation",
+            "legendFormat": "Total Sensors",
             "refId": "A"
-          },
-          {
-            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_uv_index",
-            "interval": "",
-            "legendFormat": "☀️ UV Index",
-            "refId": "B"
           }
         ],
-        "title": "Precipitation & UV Index",
-        "type": "timeseries"
+        "title": "SiteBoss Sensor Count",
+        "type": "stat"
       },
       {
         "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
@@ -303,11 +387,11 @@
             },
             "mappings": [],
             "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "red", "value": 80}]},
-            "unit": "g"
+            "unit": "s"
           },
           "overrides": []
         },
-        "gridPos": {"h": 6, "w": 8, "x": 16, "y": 10},
+        "gridPos": {"h": 6, "w": 6, "x": 12, "y": 19},
         "id": 26,
         "options": {
           "legend": {"calcs": [], "displayMode": "list", "placement": "bottom"},
@@ -316,22 +400,114 @@
         "targets": [
           {
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_vibration_g",
+            "expr": "rate(siteboss_pull_duration_seconds_sum{towerId=\"$towerId\"}[5m]) / rate(siteboss_pull_duration_seconds_count{towerId=\"$towerId\"}[5m])",
             "interval": "",
-            "legendFormat": "📳 Vibration Level",
+            "legendFormat": "Average Duration",
             "refId": "A"
           }
         ],
-        "title": "Equipment Vibration",
+        "title": "SiteBoss Pull Duration",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "gradientMode": "none",
+              "hideFrom": {"legend": false, "tooltip": false, "vis": false},
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {"type": "linear"},
+              "showPoints": "never",
+              "spanNulls": false,
+              "stacking": {"group": "A", "mode": "none"},
+              "thresholdsStyle": {"mode": "off"}
+            },
+            "mappings": [],
+            "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "red", "value": 80}]},
+            "unit": "dateTimeFromNow"
+          },
+          "overrides": []
+        },
+        "gridPos": {"h": 6, "w": 6, "x": 18, "y": 19},
+        "id": 27,
+        "options": {
+          "legend": {"calcs": [], "displayMode": "list", "placement": "bottom"},
+          "tooltip": {"mode": "single"}
+        },
+        "targets": [
+          {
+            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+            "expr": "siteboss_last_pull_epoch_seconds{towerId=\"$towerId\"}",
+            "interval": "",
+            "legendFormat": "Last Pull",
+            "refId": "A"
+          }
+        ],
+        "title": "Last Pull Timestamp",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "gradientMode": "none",
+              "hideFrom": {"legend": false, "tooltip": false, "vis": false},
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {"type": "linear"},
+              "showPoints": "never",
+              "spanNulls": false,
+              "stacking": {"group": "A", "mode": "none"},
+              "thresholdsStyle": {"mode": "off"}
+            },
+            "mappings": [],
+            "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "red", "value": 80}]},
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {"h": 6, "w": 24, "x": 0, "y": 25},
+        "id": 28,
+        "options": {
+          "legend": {"calcs": [], "displayMode": "list", "placement": "bottom"},
+          "tooltip": {"mode": "single"}
+        },
+        "targets": [
+          {
+            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+            "expr": "siteboss_sensor_value{towerId=\"$towerId\"}",
+            "interval": "",
+            "legendFormat": "{{name}} ({{unit}})",
+            "refId": "A"
+          }
+        ],
+        "title": "SiteBoss Sensor Values Over Time",
         "type": "timeseries"
       },
       {
         "collapsed": false,
         "datasource": null,
-        "gridPos": {"h": 1, "w": 24, "x": 0, "y": 16},
-        "id": 27,
+        "gridPos": {"h": 1, "w": 24, "x": 0, "y": 31},
+        "id": 29,
         "panels": [],
-        "title": "⚡ System Performance & Power",
+        "title": "🎮 Simulator Telemetry Data",
         "type": "row"
       },
       {
@@ -358,12 +534,12 @@
             },
             "mappings": [],
             "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "red", "value": 80}]},
-            "unit": "percent"
+            "unit": "celsius"
           },
           "overrides": []
         },
-        "gridPos": {"h": 6, "w": 8, "x": 0, "y": 17},
-        "id": 28,
+        "gridPos": {"h": 6, "w": 6, "x": 0, "y": 32},
+        "id": 18,
         "options": {
           "legend": {"calcs": [], "displayMode": "list", "placement": "bottom"},
           "tooltip": {"mode": "single"}
@@ -371,20 +547,13 @@
         "targets": [
           {
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_cpu_utilization_percent",
+            "expr": "tower_telemetry_temperature_celsius",
             "interval": "",
-            "legendFormat": "🖥️ CPU Usage",
+            "legendFormat": "🌡️ Equipment Temperature",
             "refId": "A"
-          },
-          {
-            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_memory_usage_percent",
-            "interval": "",
-            "legendFormat": "💾 Memory Usage",
-            "refId": "B"
           }
         ],
-        "title": "System Resource Usage",
+        "title": "Equipment Temperature",
         "type": "timeseries"
       },
       {
@@ -393,13 +562,15 @@
           "defaults": {
             "color": {"mode": "thresholds"},
             "mappings": [],
-            "thresholds": {"mode": "absolute", "steps": [{"color": "red", "value": null}, {"color": "yellow", "value": 11}, {"color": "green", "value": 13}]},
-            "unit": "volt"
+            "max": 100,
+            "min": 0,
+            "thresholds": {"mode": "absolute", "steps": [{"color": "red", "value": null}, {"color": "yellow", "value": 20}, {"color": "green", "value": 80}]},
+            "unit": "percent"
           },
           "overrides": []
         },
-        "gridPos": {"h": 6, "w": 8, "x": 8, "y": 17},
-        "id": 29,
+        "gridPos": {"h": 6, "w": 6, "x": 6, "y": 32},
+        "id": 19,
         "options": {
           "orientation": "auto",
           "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
@@ -410,13 +581,77 @@
         "targets": [
           {
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_voltage_volts",
+            "expr": "tower_telemetry_battery_percent",
             "interval": "",
-            "legendFormat": "Voltage",
+            "legendFormat": "Battery Level",
             "refId": "A"
           }
         ],
-        "title": "System Voltage",
+        "title": "Battery Level",
+        "type": "gauge"
+      },
+      {
+        "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "thresholds"},
+            "mappings": [],
+            "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 70}, {"color": "red", "value": 90}]},
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {"h": 6, "w": 6, "x": 12, "y": 32},
+        "id": 20,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+            "expr": "tower_telemetry_humidity_percent",
+            "interval": "",
+            "legendFormat": "Humidity",
+            "refId": "A"
+          }
+        ],
+        "title": "Humidity",
+        "type": "gauge"
+      },
+      {
+        "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "thresholds"},
+            "mappings": [],
+            "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 15}, {"color": "red", "value": 25}]},
+            "unit": "kph"
+          },
+          "overrides": []
+        },
+        "gridPos": {"h": 6, "w": 6, "x": 18, "y": 32},
+        "id": 21,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+            "expr": "tower_telemetry_wind_speed_kph",
+            "interval": "",
+            "legendFormat": "Wind Speed",
+            "refId": "A"
+          }
+        ],
+        "title": "Wind Speed",
         "type": "gauge"
       },
       {
@@ -443,12 +678,12 @@
             },
             "mappings": [],
             "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "red", "value": 80}]},
-            "unit": "mbps"
+            "unit": "dbm"
           },
           "overrides": []
         },
-        "gridPos": {"h": 6, "w": 8, "x": 16, "y": 17},
-        "id": 30,
+        "gridPos": {"h": 6, "w": 12, "x": 0, "y": 38},
+        "id": 22,
         "options": {
           "legend": {"calcs": [], "displayMode": "list", "placement": "bottom"},
           "tooltip": {"mode": "single"}
@@ -456,30 +691,21 @@
         "targets": [
           {
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_throughput_mbps",
+            "expr": "tower_telemetry_signal_strength_dbm",
             "interval": "",
-            "legendFormat": "📊 Throughput",
+            "legendFormat": "📶 Signal Strength",
             "refId": "A"
           },
           {
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_bandwidth_mbps",
+            "expr": "tower_telemetry_network_load_percent",
             "interval": "",
-            "legendFormat": "📡 Available Bandwidth",
+            "legendFormat": "📊 Network Load",
             "refId": "B"
           }
         ],
-        "title": "Network Throughput & Bandwidth",
+        "title": "Network Performance",
         "type": "timeseries"
-      },
-      {
-        "collapsed": false,
-        "datasource": null,
-        "gridPos": {"h": 1, "w": 24, "x": 0, "y": 23},
-        "id": 31,
-        "panels": [],
-        "title": "🔗 Network Quality & Performance",
-        "type": "row"
       },
       {
         "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
@@ -509,8 +735,8 @@
           },
           "overrides": []
         },
-        "gridPos": {"h": 6, "w": 12, "x": 0, "y": 24},
-        "id": 32,
+        "gridPos": {"h": 6, "w": 12, "x": 12, "y": 38},
+        "id": 23,
         "options": {
           "legend": {"calcs": [], "displayMode": "list", "placement": "bottom"},
           "tooltip": {"mode": "single"}
@@ -520,78 +746,170 @@
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
             "expr": "tower_telemetry_latency_ms",
             "interval": "",
-            "legendFormat": "⏱️ Network Latency",
+            "legendFormat": "⏱️ Latency",
             "refId": "A"
           },
           {
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_jitter_ms",
+            "expr": "tower_telemetry_response_time_ms",
             "interval": "",
-            "legendFormat": "📊 Jitter",
+            "legendFormat": "🚀 Response Time",
             "refId": "B"
           }
         ],
-        "title": "Network Latency & Jitter",
+        "title": "Performance Metrics",
         "type": "timeseries"
+      },
+      {
+        "collapsed": false,
+        "datasource": null,
+        "gridPos": {"h": 1, "w": 24, "x": 0, "y": 44},
+        "id": 15,
+        "panels": [],
+        "title": "🌐 System Health & Performance",
+        "type": "row"
       },
       {
         "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
         "fieldConfig": {
           "defaults": {
-            "color": {"mode": "palette-classic"},
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 10,
-              "gradientMode": "none",
-              "hideFrom": {"legend": false, "tooltip": false, "vis": false},
-              "lineInterpolation": "linear",
-              "lineWidth": 2,
-              "pointSize": 5,
-              "scaleDistribution": {"type": "linear"},
-              "showPoints": "never",
-              "spanNulls": false,
-              "stacking": {"group": "A", "mode": "none"},
-              "thresholdsStyle": {"mode": "off"}
-            },
+            "color": {"mode": "thresholds"},
             "mappings": [],
-            "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "red", "value": 80}]},
-            "unit": "percent"
+            "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 70}, {"color": "red", "value": 90}]},
+            "unit": "short"
           },
           "overrides": []
         },
-        "gridPos": {"h": 6, "w": 12, "x": 12, "y": 24},
-        "id": 33,
+        "gridPos": {"h": 6, "w": 6, "x": 0, "y": 45},
+        "id": 9,
         "options": {
-          "legend": {"calcs": [], "displayMode": "list", "placement": "bottom"},
-          "tooltip": {"mode": "single"}
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
+          "textMode": "auto"
         },
+        "pluginVersion": "8.2.5",
         "targets": [
           {
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_error_rate_percent",
+            "expr": "jvm_memory_used_bytes{job=\"simulator\",area=\"heap\"} / jvm_memory_max_bytes{job=\"simulator\",area=\"heap\"} * 100",
             "interval": "",
-            "legendFormat": "❌ Error Rate",
+            "legendFormat": "Memory Usage %",
             "refId": "A"
-          },
-          {
-            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "tower_telemetry_packet_loss_percent",
-            "interval": "",
-            "legendFormat": "📦 Packet Loss",
-            "refId": "B"
           }
         ],
-        "title": "Network Error Rates",
-        "type": "timeseries"
+        "title": "Simulator Memory Usage",
+        "type": "stat"
+      },
+      {
+        "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "thresholds"},
+            "mappings": [],
+            "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 50}, {"color": "red", "value": 80}]},
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {"h": 6, "w": 6, "x": 6, "y": 45},
+        "id": 10,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+            "expr": "sum(jvm_threads_states_threads{job=\"simulator\"})",
+            "interval": "",
+            "legendFormat": "Total Threads",
+            "refId": "A"
+          }
+        ],
+        "title": "Simulator Thread Count",
+        "type": "stat"
+      },
+      {
+        "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "thresholds"},
+            "mappings": [],
+            "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 100}, {"color": "red", "value": 500}]},
+            "unit": "reqps"
+          },
+          "overrides": []
+        },
+        "gridPos": {"h": 6, "w": 6, "x": 12, "y": 45},
+        "id": 11,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+            "expr": "rate(http_server_requests_seconds_count{job=\"simulator\"}[5m])",
+            "interval": "",
+            "legendFormat": "Requests/sec",
+            "refId": "A"
+          }
+        ],
+        "title": "Simulator Request Rate",
+        "type": "stat"
+      },
+      {
+        "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "thresholds"},
+            "mappings": [{"options": {"0": {"color": "red", "index": 1, "text": "DOWN"}, "1": {"color": "green", "index": 0, "text": "UP"}}, "type": "value"}],
+            "thresholds": {"mode": "absolute", "steps": [{"color": "red", "value": null}, {"color": "green", "value": 1}]},
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": {"h": 6, "w": 6, "x": 18, "y": 45},
+        "id": 12,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {"calcs": ["lastNotNull"], "fields": "", "values": false},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+            "expr": "up{job=\"simulator\"}",
+            "interval": "",
+            "legendFormat": "Status",
+            "refId": "A"
+          }
+        ],
+        "title": "Simulator Status",
+        "type": "stat"
       }
     ],
     "refresh": "5s",
     "schemaVersion": 27,
     "style": "dark",
-    "tags": ["5sky", "siteboss", "simulator", "monitoring", "complete", "telemetry", "environmental", "performance"],
+    "tags": ["5sky", "siteboss", "simulator", "monitoring", "complete", "telemetry"],
     "templating": {
       "list": [
         {
@@ -599,10 +917,11 @@
           "hide": 0,
           "label": "Tower ID",
           "name": "towerId",
-          "options": [{"selected": true, "text": "49", "value": "49"}],
-          "query": "49",
-          "skipUrlSync": false,
-          "type": "custom"
+          "type": "query",
+          "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
+          "refresh": 1,
+          "query": "label_values({__name__=~\"siteboss_.*|tower_telemetry_.*\"}, towerId)",
+          "skipUrlSync": false
         }
       ]
     },
@@ -620,6 +939,7 @@
   },
   "overwrite": true
 }
+
 
 
 

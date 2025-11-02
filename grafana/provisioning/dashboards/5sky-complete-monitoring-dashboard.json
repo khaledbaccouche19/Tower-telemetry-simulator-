@@ -128,7 +128,7 @@
         "targets": [
           {
             "datasource": {"type": "prometheus", "uid": "eezy3koupcglcb"},
-            "expr": "rate(siteboss_pull_success_total{towerId=\"$towerId\"}[5m]) / rate(siteboss_pull_started_total{towerId=\"$towerId\"}[5m]) * 100",
+            "expr": "rate(siteboss_pull_success_total{towerId=\"$towerId\"}{towerId=\"$towerId\"}[5m]) / rate(siteboss_pull_started_total{towerId=\"$towerId\"}{towerId=\"$towerId\"}[5m]) * 100",
             "interval": "",
             "legendFormat": "SiteBoss Success Rate",
             "refId": "A"
@@ -702,8 +702,21 @@
           "hide": 0,
           "label": "Tower ID",
           "name": "towerId",
-          "options": [{"selected": true, "text": "49", "value": "49"}],
-          "query": "49",
+          "options": [
+            {"selected": true, "text": "Tower 49", "value": "49"},
+            {"selected": false, "text": "Tower 1", "value": "1"},
+            {"selected": false, "text": "Tower 2", "value": "2"},
+            {"selected": false, "text": "Tower 3", "value": "3"},
+            {"selected": false, "text": "Tower 4", "value": "4"},
+            {"selected": false, "text": "Tower 5", "value": "5"},
+            {"selected": false, "text": "Tower 6", "value": "6"},
+            {"selected": false, "text": "Tower 7", "value": "7"},
+            {"selected": false, "text": "Tower 8", "value": "8"},
+            {"selected": false, "text": "Tower 9", "value": "9"},
+            {"selected": false, "text": "Tower 10", "value": "10"},
+            {"selected": false, "text": "Tower 59", "value": "59"}
+          ],
+          "query": "49,1,2,3,4,5,6,7,8,9,10,59",
           "skipUrlSync": false,
           "type": "custom"
         }
@@ -723,6 +736,7 @@
   },
   "overwrite": true
 }
+
 
 
 
